@@ -5,14 +5,19 @@
     <link rel="stylesheet" href="styles/reset.css"/>
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
+    <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
   </head>
   <body>
-    
     <header>
       <div class="header-content">
-        <a href=""><img src="images/RWC-logo.png" alt="logo"><p>Never Run Walk Crawl The Same Again!</p></a>
-        
+        <a href=""><img src="images/RWC-logo.png" alt="logo"></a>
+        <p>Never Run Walk Crawl The Same Again!</p>
         <i class="fas fa-bars"></i>
       </div>
       <nav class="nav-menu">
@@ -24,9 +29,8 @@
         </ul>
       </nav>
     </header>
-    
     <main>
-      <section class="home-view container">
+      <section class="home-view">
         <div class="home-blurb">
           <p>Welcome to Run-Walk-Crawl.... yada yada yada</p>
         </div>
@@ -46,11 +50,11 @@
           <a href="">Login to your account</a>
         </div>
         <aside class="desktop-only goes-right">
-          <p>Advertise with us!</p>
+          <p>Ad space</p>
         </aside>
       </section>
 
-      <section class="create-view container">
+      <section class="create-view">
         <h2>Create your Route!</h2>
         <form id="create-form">
           <input name="location" type="text" placeholder="location">
@@ -71,7 +75,7 @@
         </form>
       </section>
 
-      <section class="login-view container">
+      <section class="login-view">
         <h2>Login</h2>
         <form id="login-form">
           <p>User ID:<input name="user-id" type="text"></p>
@@ -80,7 +84,7 @@
         </form>
       </section>
 
-      <section class="user-view container">
+      <section class="user-view">
         <a href="https://placeholder.com"><img src="http://via.placeholder.com/100x100"></a>
         <h3><!-- Username here --></h3>
         <ul> My Routes:
@@ -91,7 +95,7 @@
       </section>
     </main>
   
-<!-- External CDN Resources -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/crawls.js"></script>
+    <script src="scripts/routes.js"></script>
   </body>
 </html>
