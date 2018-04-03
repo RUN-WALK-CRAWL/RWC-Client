@@ -92,8 +92,6 @@ var app = app || {};
 
   var input = document.getElementById('pac-input');
 
-  var latLng = [];
-
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.bindTo('bounds', map);
 
@@ -113,10 +111,10 @@ var app = app || {};
     }
     let lat = (place.geometry.location.lat());
     let lng = (place.geometry.location.lng());
-    console.log(lat);
-    latLng.push(lat);
-    latLng.push(lng);
-    console.log(latLng);
+    module.latLng = [];
+    module.latLng.push(lat);
+    module.latLng.push(lng);
+    console.log(module.latLng);
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
