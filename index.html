@@ -75,10 +75,11 @@
       <section class="route-view container"></section>
       <section class="login-view conatiner">
         <h2>Login</h2>
-        <form class="login-form">
-          <input type="text" name="username" placeholder="Username">
-          <input type="text" name="password" placeholder="Password">
+        <form id="login-form">
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="text" name="password" placeholder="Password" required>
           <button id="login-button" type="submit">Login</button>
+          <p class="error container">User ID/ Password is not correct!</p>
         </form>
       </section>
       <section class="user-profile-view container"></section>
@@ -93,5 +94,6 @@
     <script src="scripts/crawlView.js"></script>
     <script src="scripts/routes.js"></script>
     <script src="scripts/navControl.js"></script>
+    <script src="scripts/adminView.js"></script>
   </body>
 </html>
