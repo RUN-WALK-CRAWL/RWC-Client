@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="styles/reset.css"/>
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
+    <link rel="stylesheet" href="styles/modules/map.css"/>
     <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script
@@ -57,12 +58,12 @@
       <section class="create-view">
         <h2>Create your Route!</h2>
         <form id="create-form">
-          <input name="location" type="text" placeholder="location">
+          <input id="pac-input" type="text" placeholder="Enter a location">
           <select name="price">
-            <option value="$">$</option>
-            <option value="$$">$$</option>
-            <option value="$$$">$$$</option>
-            <option value="$$$$">$$$$</option>
+            <option value="1">$</option>
+            <option value="2">$$</option>
+            <option value="3">$$$</option>
+            <option value="4">$$$$</option>
           </select>
           <select name="distance">
             <option value="quarter-mile">.25 Mile</option>
@@ -93,10 +94,19 @@
           <li></li>
         </ul>
       </section>
+
+      <section class="route-view">
+        <div id="pac-container">
+
+        </div>
+        <div id="map"></div>
+      </section>
     </main>
-  
-    <script src="scripts/crawls.js"></script>
-    <script src="scripts/crawlView.js"></script>
-    <script src="scripts/routes.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMre3vjY2sVF1Hviv2B9bxdmo9AKSlgzE&v=3.exp&libraries=places"></script>
+    <script src="scripts/models/crawls.js"></script>
+    <script src="scripts/models/map.js"></script>
+    <script src="scripts/views/crawlView.js"></script>
+    <script src="scripts/models/routes.js"></script>
   </body>
 </html>
