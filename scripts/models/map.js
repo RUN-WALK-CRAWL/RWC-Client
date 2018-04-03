@@ -1,3 +1,5 @@
+var app = app || {};
+
 (function(module) {
 
   var stylesArray = [
@@ -90,6 +92,8 @@
 
   var input = document.getElementById('pac-input');
 
+  var latLng = [];
+
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.bindTo('bounds', map);
 
@@ -105,8 +109,14 @@
       map.fitBounds(place.geometry.viewport);
     } else {
       map.setCenter(place.geometry.location);
-      map.setZoom(17);s
+      map.setZoom(17);
     }
+    let lat = (place.geometry.location.lat());
+    let lng = (place.geometry.location.lng());
+    console.log(lat);
+    latLng.push(lat);
+    latLng.push(lng);
+    console.log(latLng);
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -132,4 +142,4 @@
   });
 
   module.map = map;
-})(window);
+})(app);
