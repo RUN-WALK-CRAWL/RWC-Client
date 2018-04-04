@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+html {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+#blurb {
+  font-family: 'Courgette', cursive;
+  padding: 0px 0 30px 30px;
+  font-size: 25px;
+  margin: auto;
+}
+header {
+  position: relative;
+}
+header img {
+    display: block;
+    max-width: 60%;
+    padding-left: 20px;
+}
+#background {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+#start, #start-description {
+  font-family: 'Courgette', cursive;
+  position: relative;
+}
