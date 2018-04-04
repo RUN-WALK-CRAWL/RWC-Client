@@ -1,7 +1,7 @@
 var app = app || {};
 
 (function(module) {
-
+  // let google;
   var stylesArray = [
     {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
     {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -87,8 +87,11 @@ var app = app || {};
       position: google.maps.ControlPosition.RIGHT_CENTER
     }
   };
+  
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  // module.setMarkers(map);
+
 
   var input = document.getElementById('pac-input');
 
@@ -107,14 +110,14 @@ var app = app || {};
       map.fitBounds(place.geometry.viewport);
     } else {
       map.setCenter(place.geometry.location);
-      map.setZoom(17);
+      map.setZoom(5);
     }
     let lat = (place.geometry.location.lat());
     let lng = (place.geometry.location.lng());
     module.latLng = [];
     module.latLng.push(lat);
     module.latLng.push(lng);
-    // console.log(module.latLng);
+    console.log(module.latLng);
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -139,37 +142,16 @@ var app = app || {};
     map: map,
   });
 
-  
-  function setMarkers(map) {
-    for (let i = 0; i < Crawl.all; i++) {
-      let bars = Crawl.all[i]
-      let markers = new google.map.Marker({
-        position: {lat: bars[3], lng: bars[4]},
+  map.setMarkers = () => {
+    for (let i = 0; i < app.Crawl.all.length; i++) {
+      new google.map.Marker({
+        position: {lat: app.Crawl.all[i].latitude, lng: app.Crawl.all[i].longitude},
         animation: google.maps.Animation.DROP,
-        icon: '../../images/beergarden.png',
+        icon: '../images/beergarden.png',
         map: map
       });
     }
-  }
-
-  setMarkers(map);
-  // map.setMarkers = function () {
-  //   map.markers = [];
-  //   function result() {
-  //     app.Crawl.all.forEach(function(bars){
-  //       let coordinates = {
-  //         lat: app.Crawl.all.latitude,
-  //         lng: app.Crawl.all.longitude,
-  //       };
-  //       let marker = new google.maps.Marker({
-  //         position: coordinates,
-  //         animation: google.maps.Animation.DROP,
-  //         icon: '../../images/beergarden.png'
-  //       });
-  //       map.markers.push(marker);
-  //     })
-  //   }
-  // }
+  };
 
   module.map = map;
 })(app);
