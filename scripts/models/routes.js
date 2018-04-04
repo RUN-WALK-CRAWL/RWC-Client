@@ -9,7 +9,6 @@ page('/login', () => app.adminView.initAdminPage());
 
 // page('/create/:username', ctx=>app.crawlView.initCreatePage(ctx));
 
-page('/route', ()=>app.crawlView.initCrawlRoute());
-page('/', ()=> ()=> app.crawlView.initHomePage());
+page('/', ()=> app.crawlView.initHomePage());
 
 page();
