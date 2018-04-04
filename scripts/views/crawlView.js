@@ -8,16 +8,15 @@ var app = app || {};
 
   crawlView.initHomePage =()=>{
     $('.container').hide();
+    $('#background').show();
     $('.home-view').show();
-    $('#start-button').on('click', page('/create'));
   };
 
   crawlView.initSearchView = (ctx) => {
     //Hide containers, etc.
     $('.container').hide();
+    $('#background').show();
     $('.create-view').show();
-
-
     $('#create-form').on('submit', function(event) {
       event.preventDefault();
       //saving search parameters to database
@@ -44,6 +43,9 @@ var app = app || {};
 
   crawlView.initRouteView = (ctx) => {
     console.log(ctx);
+    $('.container').hide();
+    $('#background').hide();
+    $('.route-view').show();
   };
 
   // crawlView.initUserProfile = (username)=>{
