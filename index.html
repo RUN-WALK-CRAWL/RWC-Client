@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/modules/map.css"/>
     <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    
+
     <script type="text/x-handlebars-template" id="user-template">
       <section class="user container">
         <h2>{{user-name}}</h2>
@@ -18,16 +18,16 @@
         </ul>
       </section>
     </script>
-  
+
   </head>
-  
+
   <body>
     <header>
+      <button class="hamburger">&#9776;</button>
+      <button class="cross">&#735;</button>
       <div class="header-content">
         <a href=""><img src="images/RWC-logo.png" alt="logo"></a>
-        <p>Never Run Walk Crawl The Same Again!</p>
-        <button class="hamburger">&#9776;</button>
-        <button class="cross">&#735;</button>
+        <p id="blurb">Never Run Walk Crawl The Same Again!</p>
       </div>
       <nav class="menu">
         <ul>
@@ -45,7 +45,7 @@
       <section class="home-view container">
         <button id="start-button" type="click">
           <div id="start">Start</div>
-          <div id="start-description">Create your personalized pub crawl</div>  
+          <div id="start-description">Create your personalized pub crawl</div>
         </button>
       </section>
       <section class="create-view container">
@@ -76,7 +76,7 @@
       </section>
       <section class="route-view container">
           <div id="pac-container">
-  
+
           </div>
           <div id="map"></div>
       </section>
