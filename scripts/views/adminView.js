@@ -12,6 +12,7 @@ var app = app || {};
 
   adminView.initAdminPage = ()=>{
     $('.container').hide();
+    $('#background').show();
     $('.login-view').show();
 
     $('#login-form').on('submit', function(event) {
