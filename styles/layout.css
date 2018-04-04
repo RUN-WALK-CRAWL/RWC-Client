@@ -1,11 +1,32 @@
-header {
-  max-width: 100%;
-}
-
-header img {
-  height: 30vw;
-}
-
-.fas {
+.hamburger {
+  background-color:black;
   float: right;
+  line-height:45px;
+  padding:30px 20px 30px 20px;
+  color:whitesmoke;
+  border-radius: 10%;
+  font-size:4em;
+  font-weight:lighter;
+  cursor:pointer;
+  outline:none;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+.cross {
+  background-color:black;
+  float: right;
+  line-height: 100px;
+  padding: 32px 25px 0px 20px;
+  /* padding-top:;
+  padding-right:;
+  padding-left:; */
+  padding-bottom:0px;
+  color:whitesmoke;
+  border-radius: 10%;
+  font-size:7em;
+  font-weight:lighter;
+  cursor:pointer;
+  outline:none;
+  margin-top: 40px;
+  margin-right: 40px;
 }

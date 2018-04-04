@@ -5,98 +5,121 @@
     <link rel="stylesheet" href="styles/reset.css"/>
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
+    <link rel="stylesheet" href="styles/modules/map.css"/>
     <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+
+    <script type="text/x-handlebars-template" id="user-template">
+      <section class="user container">
+        <h2>{{user-name}}</h2>
+        <h3>Saved Routes</h3>
+        <ul id="saved-routes-list">
+          <li id="saved-route">{{route-name}}</li>
+        </ul>
+      </section>
+    </script>
+
+    <script type="text/x-handlebars-template" id="list-template">
+      <div data-resid="{{res_id}}">
+        <img src="{{thumbnail}}" alt="{{name}}">
+        <ul>{{name}}
+          <li>{{address}}</li>
+          <li>Price Range: {{price}}</li>
+          <li>User Rating: {{rating}}</li>
+        </ul>
+      </div>  
+    </script>
 
   </head>
+
   <body>
     <header>
+      <button class="hamburger">&#9776;</button>
+      <!-- <button class="cross">&#735;</button> -->
       <div class="header-content">
         <a href=""><img src="images/RWC-logo.png" alt="logo"></a>
-        <p>Never Run Walk Crawl The Same Again!</p>
-        <i class="fas fa-bars"></i>
+        <p id="blurb">Never Run Walk Crawl The Same Again!</p>
       </div>
-      <nav class="nav-menu">
+      <nav class="menu container">
         <ul>
-          <li>Login</li>
-          <li>Home</li>
-          <li>Create</li>
-          <li>About</li>
+          <a href="/login"><li class="guest">Login</li></a>
+          <a href="/"><li class="user">Logout</li></a>
+          <a href="/"><li>Home</li></a>
+          <a href="/search"><li>Create</li></a>
+          <a href="/about"><li>About</li></a>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="home-view">
-        <div class="home-blurb">
-          <p>Welcome to Run-Walk-Crawl.... yada yada yada</p>
-        </div>
-        <aside class="desktop-only goes-left">
-          <h2>Give it a try!</h2>
-          <ul>
-            <li>U-district</li>
-            <li>Belltown</li>
-            <li>Pioneer Square</li>
-          </ul>
-        </aside>
-        <div class="start-view">
-          <!-- <img src="images/city-background.png" alt="city-view"> -->
-
-          <a href="">Let us choose</a>
-          <a href="">Create your route!</a>
-          <a href="">Login to your account</a>
-        </div>
-        <aside class="desktop-only goes-right">
-          <p>Ad space</p>
-        </aside>
+      <img id="background" src="images/city-background.png" alt="city-view">
+      <section class="home-view container">
+        <a href="/search"><button id="start-button" type="click">
+            <div id="start">Start</div>
+            <div id="start-description">Create your personalized pub crawl</div>
+          </button>
+        </a>
       </section>
-
-      <section class="create-view">
+      <section class="create-view container">
         <h2>Create your Route!</h2>
         <form id="create-form">
-          <input name="location" type="text" placeholder="location">
-          <select name="price">
-            <option value="$">$</option>
-            <option value="$$">$$</option>
-            <option value="$$$">$$$</option>
-            <option value="$$$$">$$$$</option>
-          </select>
-          <select name="distance">
-            <option value="quarter-mile">.25 Mile</option>
-            <option value="half-mile">.5 Mile</option>
-            <option value="mile">1 Mile</option>
-            <option value="2-miles">2 Miles</option>
-          </select>
-          <input name="stops" type="number" placeholder="number of stops">
-          <input type="submit" value="submit">
+          <input id="pac-input" type="text" name="location" placeholder="Enter a location">
+          <br>
+          <select id="max-stops" name="maxStops">
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+            <br>
+          <select id="max-distance" name="maxDistance">
+              <option value="0.25">0.25 mi.</option>
+              <option value="0.5">0.5 mi.</option>
+              <option value="0.75">0.75 mi.</option>
+              <option value="1.0">1.0 mi.</option>
+              <option value="1.25">1.25 mi.</option>
+              <option value="1.5">1.5 mi.</option>
+            </select>
+            <br>
+            <button id="create-button" type="submit">Submit</button>
         </form>
       </section>
+      <!-- ROUTE VIEW -->
+      <section class="route-view container">
+          <div id="map"></div>
+          <div id="list-container"></section>
+      </section>
 
-      <section class="login-view">
+      <section class="login-view container">
         <h2>Login</h2>
         <form id="login-form">
-          <p>User ID:<input name="user-id" type="text"></p>
-          <p>Password:<input name="password" type="password"></p>
-          <input type="submit" value="submit">
+          <input type="text" id="username" name="username" placeholder="Username" required>
+          <input type="text" id="password" name="password" placeholder="Password" required>
+          <button id="login-button" type="submit">Login</button>
+          <p class="error container">User ID/ Password is not correct!</p>
         </form>
       </section>
-
-      <section class="user-view">
-        <a href="https://placeholder.com"><img src="http://via.placeholder.com/100x100"></a>
-        <h3><!-- Username here --></h3>
-        <ul> My Routes:
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </section>
+      <section class="user-profile-view container"></section>
+      <section class="default-view container"></section>
+      <section class="about container"></section>
+      <aside class="ad container"><p>Ad space</p></aside>
     </main>
-  
-    <script src="scripts/crawls.js"></script>
-    <script src="scripts/crawlView.js"></script>
-    <script src="scripts/routes.js"></script>
+    <footer></footer>
+    <!-- External CDN Resources -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMre3vjY2sVF1Hviv2B9bxdmo9AKSlgzE&libraries=places"></script>
+    <script src="scripts/models/crawls.js"></script>
+    <script src="scripts/models/map.js"></script>
+    <script src="scripts/views/crawlView.js"></script>
+    <script src="scripts/views/navControl.js"></script>
+    <script src="scripts/views/adminView.js"></script>
+    <script src="scripts/models/routes.js"></script>
+    <script>page('/')</script>
   </body>
 </html>
