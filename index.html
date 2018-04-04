@@ -5,36 +5,10 @@
     <link rel="stylesheet" href="styles/reset.css"/>
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
+    <link rel="stylesheet" href="styles/modules/map.css"/>
     <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    <script type="text/x-handlebars-template" id="create-template">
-      <section class="create container">
-        <h2>Create Your Route</h2>
-        <form class="create-form">
-          <input type="text" name="location" placeholder="Location">
-          <select id="max-stops" name="maxStops">
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </select>
-          <select id="max-distance" name="maxDistance">
-            <option value="0.25">0.25 mi.</option>
-            <option value="0.5">0.5 mi.</option>
-            <option value="0.75">0.75 mi.</option>
-            <option value="1.0">1.0 mi.</option>
-            <option value="1.25">1.25 mi.</option>
-            <option value="1.5">1.5 mi.</option>
-          </select>
-          <button id="create-button" type="submit">Submit</button>
-        </form>
-      </section>
-    </script>
+
     <script type="text/x-handlebars-template" id="user-template">
       <section class="user container">
         <h2>{{user-name}}</h2>
@@ -44,7 +18,9 @@
         </ul>
       </section>
     </script>
+
   </head>
+
   <body>
     <header>
       <button class="hamburger">&#9776;</button>
@@ -53,16 +29,18 @@
         <a href=""><img src="images/RWC-logo.png" alt="logo"></a>
         <p id="blurb">Never Run Walk Crawl The Same Again!</p>
       </div>
+      <nav class="menu">
+        <ul>
+          <a href="/login"><li>Login</li></a>
+          <a href="/"><li>Home</li></a>
+          <a href="/create"><li>Create</li></a>
+          <a href="/about"><li>About</li></a>
+        </ul>
+      </nav>
     </header>
-    <nav class="menu">
-      <ul>
-        <li>Login</li>
-        <li>Home</li>
-        <li>Create</li>
-        <li>About</li>
-      </ul>
-    </nav>
+
     <main>
+
       <img id="background" src="images/city-background.png" alt="city-view">
       <section class="home-view container">
         <button id="start-button" type="click">
@@ -70,28 +48,62 @@
           <div id="start-description">Create your personalized pub crawl</div>
         </button>
       </section>
-      <aside class="ad container"><p>Ad space</p></aside>
-      <section class="create-view container"></section>
-      <section class="route-view container"></section>
-      <section class="login-view conatiner">
+      <section class="create-view container">
+        <h2>Create your Route!</h2>
+        <form id="create-form">
+          <input id="pac-input" type="text" placeholder="Enter a location">
+          <select id="max-stops" name="maxStops">
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          <select id="max-distance" name="maxDistance">
+              <option value="0.25">0.25 mi.</option>
+              <option value="0.5">0.5 mi.</option>
+              <option value="0.75">0.75 mi.</option>
+              <option value="1.0">1.0 mi.</option>
+              <option value="1.25">1.25 mi.</option>
+              <option value="1.5">1.5 mi.</option>
+            </select>
+            <button id="create-button" type="submit">Submit</button>
+        </form>
+      </section>
+      <section class="route-view container">
+          <div id="pac-container">
+
+          </div>
+          <div id="map"></div>
+      </section>
+      <section class="login-view container">
         <h2>Login</h2>
-        <form class="login-form">
-          <input type="text" name="username" placeholder="Username">
-          <input type="text" name="password" placeholder="Password">
+        <form id="login-form">
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="text" name="password" placeholder="Password" required>
           <button id="login-button" type="submit">Login</button>
+          <p class="error container">User ID/ Password is not correct!</p>
         </form>
       </section>
       <section class="user-profile-view container"></section>
       <section class="default-view container"></section>
       <section class="about container"></section>
+      <aside class="ad container"><p>Ad space</p></aside>
+
     </main>
     <!-- External CDN Resources -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="scripts/crawls.js"></script>
-    <script src="scripts/crawlView.js"></script>
-    <script src="scripts/routes.js"></script>
-    <script src="scripts/navControl.js"></script>
+    <script src="scripts/models/map.js"></script>
+    <script src="scripts/models/routes.js"></script>
+    <script src="scripts/models/crawls.js"></script>
+    <script src="scripts/views/crawlView.js"></script>
+    <script src="scripts/views/navControl.js"></script>
+    <script src="scripts/views/adminView.js"></script>
   </body>
 </html>
