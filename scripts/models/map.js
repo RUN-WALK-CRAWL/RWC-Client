@@ -114,7 +114,6 @@ var app = app || {};
     module.latLng = [];
     module.latLng.push(lat);
     module.latLng.push(lng);
-    // console.log(module.latLng);
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -135,39 +134,45 @@ var app = app || {};
   });
 
   var marker = new google.maps.Marker({
-    position: {lat: 47.618217, lng: -122.351832},
+    position: {lat: 47.6062, lng: -122.3321},
+    icon: '/../../../../images/005-pin.png',
+    infowindow: new google.maps.InfoWindow({
+      content: `Starting Point!`
+    }),
     map: map,
   });
 
-  
-  function setMarkers(map) {
-    for (let i = 0; i < Crawl.all; i++) {
-      let bars = Crawl.all[i]
-      let markers = new google.map.Marker({
-        position: {lat: bars[3], lng: bars[4]},
+  const allMarkers = [marker];
+
+  map.setMarkers = () => {
+    app.Crawl.selected.forEach((location,i) => {
+      let myLatLng = new google.maps.LatLng(parseFloat(location.latitude),parseFloat(location.longitude));
+      let newMarker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
-        icon: '../../images/beergarden.png',
-        map: map
+        icon: '/../../../../images/bar-icon.png',
+        map: map,
+        infowindow: new google.maps.InfoWindow({
+          content: `<h3><b>Stop ${i+1}</b></h3>` + `<p>${location.name}</p>` + `<p><em>${location.address}</em></p>`
+        })
       });
-    }
-  }
-  // map.setMarkers = function () {
-  //   map.markers = [];
-  //   function result() {
-  //     app.Crawl.all.forEach(function(bars){
-  //       let coordinates = {
-  //         lat: app.Crawl.all.latitude,
-  //         lng: app.Crawl.all.longitude,
-  //       };
-  //       let marker = new google.maps.Marker({
-  //         position: coordinates,
-  //         animation: google.maps.Animation.DROP,
-  //         icon: '../../images/beergarden.png'
-  //       });
-  //       map.markers.push(marker);
-  //     })
-  //   }
-  // }
+      allMarkers.push(newMarker);
+      newMarker.setPosition(myLatLng);
+      newMarker.setVisible(true);
+      newMarker.addListener('click', function() {
+        map.hideAllOpenInfoWindows();
+        newMarker.infowindow.open(map, newMarker);
+      });
+    });
+    let bounds = new google.maps.LatLngBounds();
+    allMarkers.forEach(marker => {bounds.extend(marker.getPosition());});
+    map.fitBounds(bounds);
+  };
+
+  map.hideAllOpenInfoWindows = map => {
+    allMarkers.forEach(marker => {
+      marker.infowindow.close(map, marker);
+    });
+  };
 
   module.map = map;
 })(app);

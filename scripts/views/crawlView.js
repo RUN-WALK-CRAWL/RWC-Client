@@ -21,13 +21,13 @@ var app = app || {};
     $('#create-form').on('submit', function(event) {
       event.preventDefault();
       //saving search parameters to database
-      // let crawl = {
+      // let search = {
       //   // username: username.value || '',
       //   location: event.target.location.value,
       //   stops: event.target.maxStops.value,
       //   distance: event.target.maxDistance.value
       // };
-      // module.Crawl.create(crawl);
+      // module.Crawl.saveRoute(search);
 
       //using search parameters to make ajax request and move to results page
       var radius;
@@ -43,10 +43,12 @@ var app = app || {};
   };
 
   crawlView.initRouteView = (ctx) => {
-    console.log(ctx);
     $('.container').hide();
     $('#background').hide();
     $('.route-view').show();
+    $('#list-container').empty();
+    app.map.setMarkers();
+    app.Crawl.selected.forEach(location => $('#list-container').append(location.toHtml()));
   };
 
   // crawlView.initUserProfile = (username)=>{
@@ -60,6 +62,3 @@ var app = app || {};
   module.crawlView = crawlView;
 
 })(app);
-
-
-
