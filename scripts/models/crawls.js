@@ -2,7 +2,13 @@
 
 //GLOBAL VARIABLES
 var app = app || {};
-const SERVER_URL = 'http://localhost:3000';
+
+const ENV = {};
+
+ENV.isProduction = window.location.protocol === 'https:';
+ENV.productionApiUrl = 'insert cloud API server URL here';
+ENV.developmentApiUrl = 'http://localhost:3000';
+ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
 (function(module) {
 
@@ -21,7 +27,7 @@ const SERVER_URL = 'http://localhost:3000';
 
   Crawl.search = (ctx, next) => {
     console.log('searching...');
-    $.get(`${SERVER_URL}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.distance}/`)
+    $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.distance}/`)
       .then(
         data => {
           JSON.parse(data.bar).restaurants.forEach(crawl => {
@@ -53,6 +59,12 @@ const SERVER_URL = 'http://localhost:3000';
     // err => console.error(err.status, err.statusText)});
     next();
   };
+
+  Crawl.create = crawl =>
+    $.post(`${ENV.apiUrl}/api/v1/crawls`, crawl)
+      .then(() => {})
+      .catch();
+
   module.Crawl = Crawl;
 
 })(app);

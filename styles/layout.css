@@ -1,11 +1,6 @@
-header {
-  max-width: 100%;
-}
-
-header img {
-  height: 30vw;
-}
-
-.fas {
-  float: right;
-}
+header {max-width: 100%;}
+header img {height: 30vw;}
+/* .hamburger{background:none;position:absolute;top:100px;right:200px;line-height:45px;padding:20px 30px 20px 30px;color:#999;border:0;font-size:5em;font-weight:bold;cursor:pointer;outline:none;z-index:99;}
+.cross{background:none;position:absolute;top:0px;right:0;padding:7px 15px 0px 15px;color:#999;border:0;font-size:8em;line-height:65px;font-weight:bold;cursor:pointer;outline:none;z-index:99;} */
+.hamburger{background-color:black;position:absolute;top:100px;right:200px;line-height:45px;padding:30px 20px 30px 20px;color:whitesmoke;border:0;font-size:5em;font-weight:lighter;cursor:pointer;outline:none;z-index:99;}
+.cross{background-color:black;position:absolute;top:0px;right:0;padding:7px 15px 0px 15px;color:whitesmoke;border:0;font-size:8em;line-height:65px;font-weight:bold;cursor:pointer;outline:none;z-index:99;}
