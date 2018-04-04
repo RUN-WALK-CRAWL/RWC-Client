@@ -19,6 +19,17 @@
       </section>
     </script>
 
+    <script type="text/x-handlebars-template" id="list-template">
+      <div data-resid="{{res_id}}">
+        <img src="{{thumbnail}}" alt="{{name}}">
+        <ul>{{name}}
+          <li>{{address}}</li>
+          <li>Price Range: {{price}}</li>
+          <li>User Rating: {{rating}}</li>
+        </ul>
+      </div>  
+    </script>
+
   </head>
 
   <body>
@@ -38,9 +49,7 @@
         </ul>
       </nav>
     </header>
-
     <main>
-
       <img id="background" src="images/city-background.png" alt="city-view">
       <section class="home-view container">
         <button id="start-button" type="click">
@@ -74,12 +83,12 @@
             <button id="create-button" type="submit">Submit</button>
         </form>
       </section>
+      <!-- ROUTE VIEW -->
       <section class="route-view container">
-          <div id="pac-container">
-
-          </div>
           <div id="map"></div>
+          <div id="list-container"></section>
       </section>
+
       <section class="login-view container">
         <h2>Login</h2>
         <form id="login-form">
@@ -93,20 +102,17 @@
       <section class="default-view container"></section>
       <section class="about container"></section>
       <aside class="ad container"><p>Ad space</p></aside>
-
     </main>
     <!-- External CDN Resources -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMre3vjY2sVF1Hviv2B9bxdmo9AKSlgzE&libraries=places">
-    </script>
-
-    <script src="scripts/models/routes.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMre3vjY2sVF1Hviv2B9bxdmo9AKSlgzE&libraries=places"></script>
     <script src="scripts/models/crawls.js"></script>
     <script src="scripts/models/map.js"></script>
     <script src="scripts/views/crawlView.js"></script>
     <script src="scripts/views/navControl.js"></script>
     <script src="scripts/views/adminView.js"></script>
+    <script src="scripts/models/routes.js"></script>
   </body>
 </html>

@@ -117,7 +117,10 @@ var app = app || {};
     module.latLng = [];
     module.latLng.push(lat);
     module.latLng.push(lng);
+<<<<<<< HEAD
     console.log(module.latLng);
+=======
+>>>>>>> 2e9c530857046f4bd06034f700e75df30b2b1f50
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -138,10 +141,15 @@ var app = app || {};
   });
 
   var marker = new google.maps.Marker({
-    position: {lat: 47.618217, lng: -122.351832},
+    position: {lat: 47.6062, lng: -122.3321},
+    icon: '/../../../../images/005-pin.png',
+    infowindow: new google.maps.InfoWindow({
+      content: `Starting Point!`
+    }),
     map: map,
   });
 
+<<<<<<< HEAD
   map.setMarkers = () => {
     for (let i = 0; i < app.Crawl.all.length; i++) {
       new google.map.Marker({
@@ -151,6 +159,38 @@ var app = app || {};
         map: map
       });
     }
+=======
+  const allMarkers = [marker];
+
+  map.setMarkers = () => {
+    app.Crawl.selected.forEach((location,i) => {
+      let myLatLng = new google.maps.LatLng(parseFloat(location.latitude),parseFloat(location.longitude));
+      let newMarker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        icon: '/../../../../images/bar-icon.png',
+        map: map,
+        infowindow: new google.maps.InfoWindow({
+          content: `<h3><b>Stop ${i+1}</b></h3>` + `<p>${location.name}</p>` + `<p><em>${location.address}</em></p>`
+        })
+      });
+      allMarkers.push(newMarker);
+      newMarker.setPosition(myLatLng);
+      newMarker.setVisible(true);
+      newMarker.addListener('click', function() {
+        map.hideAllOpenInfoWindows();
+        newMarker.infowindow.open(map, newMarker);
+      });
+    });
+    let bounds = new google.maps.LatLngBounds();
+    allMarkers.forEach(marker => {bounds.extend(marker.getPosition());});
+    map.fitBounds(bounds);
+  };
+
+  map.hideAllOpenInfoWindows = map => {
+    allMarkers.forEach(marker => {
+      marker.infowindow.close(map, marker);
+    });
+>>>>>>> 2e9c530857046f4bd06034f700e75df30b2b1f50
   };
 
   module.map = map;
