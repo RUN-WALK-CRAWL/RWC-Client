@@ -151,6 +151,8 @@ var app = app || {};
       });
     }
   }
+
+  setMarkers(map);
   // map.setMarkers = function () {
   //   map.markers = [];
   //   function result() {
