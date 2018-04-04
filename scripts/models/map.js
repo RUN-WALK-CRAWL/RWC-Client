@@ -114,7 +114,7 @@ var app = app || {};
     module.latLng = [];
     module.latLng.push(lat);
     module.latLng.push(lng);
-    console.log(module.latLng);
+    // console.log(module.latLng);
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -138,6 +138,36 @@ var app = app || {};
     position: {lat: 47.618217, lng: -122.351832},
     map: map,
   });
+
+  
+  function setMarkers(map) {
+    for (let i = 0; i < Crawl.all; i++) {
+      let bars = Crawl.all[i]
+      let markers = new google.map.Marker({
+        position: {lat: bars[3], lng: bars[4]},
+        animation: google.maps.Animation.DROP,
+        icon: '../../images/beergarden.png',
+        map: map
+      });
+    }
+  }
+  // map.setMarkers = function () {
+  //   map.markers = [];
+  //   function result() {
+  //     app.Crawl.all.forEach(function(bars){
+  //       let coordinates = {
+  //         lat: app.Crawl.all.latitude,
+  //         lng: app.Crawl.all.longitude,
+  //       };
+  //       let marker = new google.maps.Marker({
+  //         position: coordinates,
+  //         animation: google.maps.Animation.DROP,
+  //         icon: '../../images/beergarden.png'
+  //       });
+  //       map.markers.push(marker);
+  //     })
+  //   }
+  // }
 
   module.map = map;
 })(app);
