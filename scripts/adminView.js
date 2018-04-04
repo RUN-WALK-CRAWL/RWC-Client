@@ -19,12 +19,12 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
         let token = event.target.password.value;
         let username = event.target.username.value;
 
-        $.get(`${ENV.apiUrl}/api/v1/login/${username}`, {token})
+        $.get(`${ENV.apiUrl}/api/v1/login/${username}`, {token,username})
           .then(res => {
             if(res){
               localStorage.token = true;
               $('.container').hide();
-              $('.user-profile-view').show();
+              module.crawlView.initUserProfile(username);
             }
           })
           .catch(() => {token='';username='';$('.error').show();});
