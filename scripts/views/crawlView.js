@@ -8,6 +8,7 @@ var app = app || {};
 
   crawlView.initHomePage =()=>{
     $('.container').hide();
+    $('.user').hide();
     $('#background').show();
     $('.home-view').show();
   };
