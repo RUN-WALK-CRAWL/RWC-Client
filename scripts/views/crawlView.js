@@ -21,13 +21,13 @@ var app = app || {};
     $('#create-form').on('submit', function(event) {
       event.preventDefault();
       //saving search parameters to database
-      let crawl = {
-        username: username.value || '',
-        location: event.target.location.value,
-        stops: event.target.maxStops.value,
-        distance: event.target.maxDistance.value
-      };
-      module.Crawl.create(crawl);
+      // let crawl = {
+      //   // username: username.value || '',
+      //   location: event.target.location.value,
+      //   stops: event.target.maxStops.value,
+      //   distance: event.target.maxDistance.value
+      // };
+      // module.Crawl.create(crawl);
 
       //using search parameters to make ajax request and move to results page
       var radius;
