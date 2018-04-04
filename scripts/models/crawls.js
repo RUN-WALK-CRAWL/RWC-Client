@@ -1,7 +1,15 @@
 'use strict';
 
 //GLOBAL VARIABLES
-// var app = app || {};
+var app = app || {};
+
+const ENV = {};
+
+ENV.isProduction = window.location.protocol === 'https:';
+ENV.productionApiUrl = 'insert cloud API server URL here';
+ENV.developmentApiUrl = 'insert local API server URL here';
+ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
+
 const SERVER_URL = 'http://localhost:3000';
 
 
@@ -18,6 +26,11 @@ function Crawl(object) {
 }
 
 Crawl.all = [];
+
+Crawl.create = crawl =>
+    $.post(`${ENV.apiUrl}/api/v1/crawls`, crawl)
+      .then(() => {})
+      .catch();
 
 Crawl.search = (event) => {
   event.preventDefault();
