@@ -36,8 +36,8 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     console.log('searching...');
     $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.distance}/`)
       .then( data => {
-        JSON.parse(data.bar).restaurants.forEach(crawl => Crawl.create(crawl));
         JSON.parse(data.pub).restaurants.forEach(crawl => Crawl.create(crawl));
+        JSON.parse(data.bar).restaurants.forEach(crawl => Crawl.create(crawl));
         Crawl.filter();
         next();
       })
@@ -66,7 +66,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   };
 
   Crawl.filter = () => {
-    //sort Crawl.all by distance order here
+    //SORT CRAWL.ALL BY DISTANCE USING ALGORITM??
     // Crawl.all.sort();
 
     Crawl.selected = Crawl.all.slice(0, app.crawlCount);

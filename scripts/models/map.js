@@ -135,25 +135,43 @@ var app = app || {};
 
   var marker = new google.maps.Marker({
     position: {lat: 47.6062, lng: -122.3321},
+    icon: '/../../../../images/005-pin.png',
+    infowindow: new google.maps.InfoWindow({
+      content: `Starting Point!`
+    }),
     map: map,
   });
 
+  const allMarkers = [marker];
+
   map.setMarkers = () => {
-    const allMarkers = [];
-    app.Crawl.selected.forEach(location => {
+    app.Crawl.selected.forEach((location,i) => {
       let myLatLng = new google.maps.LatLng(parseFloat(location.latitude),parseFloat(location.longitude));
       let newMarker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
-        // icon: '../../images/beergarden.png',
-        map: map
+        icon: '/../../../../images/bar-icon.png',
+        map: map,
+        infowindow: new google.maps.InfoWindow({
+          content: `<h3><b>Stop ${i+1}</b></h3>` + `<p>${location.name}</p>` + `<p><em>${location.address}</em></p>`
+        })
       });
       allMarkers.push(newMarker);
       newMarker.setPosition(myLatLng);
       newMarker.setVisible(true);
+      newMarker.addListener('click', function() {
+        map.hideAllOpenInfoWindows();
+        newMarker.infowindow.open(map, newMarker);
+      });
     });
     let bounds = new google.maps.LatLngBounds();
     allMarkers.forEach(marker => {bounds.extend(marker.getPosition());});
     map.fitBounds(bounds);
+  };
+
+  map.hideAllOpenInfoWindows = map => {
+    allMarkers.forEach(marker => {
+      marker.infowindow.close(map, marker);
+    });
   };
 
   module.map = map;
