@@ -70,10 +70,6 @@
               <option>4</option>
               <option>5</option>
               <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
             </select>
             <br>
           <select id="max-distance" name="maxDistance">
@@ -91,6 +87,7 @@
       <!-- ROUTE VIEW -->
       <section class="route-view container">
           <div id="map"></div>
+          <button id="save-route-button" type="click">Save Route</button>
           <div id="list-container"></section>
       </section>
 
@@ -101,6 +98,13 @@
           <input type="text" id="password" name="password" placeholder="Password" required>
           <button id="login-button" type="submit">Login</button>
           <p class="error container">User ID/ Password is not correct!</p>
+        </form>
+      </section>
+      <section class="new-user-view container">
+        <form id="register-new-user-form">
+          <input type="text" id="register-username" name="username" placeholder="Username" required>
+          <input type="text" id="register-password" name="password" placeholder="Password" required>
+          <button id="register-button" type="submit">Register</button>
         </form>
       </section>
       <section class="user-profile-view container"></section>

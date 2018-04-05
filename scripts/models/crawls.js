@@ -64,16 +64,17 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     };
     Crawl.all.push(new Crawl(newCrawl));
   };
-
+  let distance = Math.sqrt(a*a+b*b)
   Crawl.filter = () => {
     //SORT CRAWL.ALL BY DISTANCE USING ALGORITM??
-    // Crawl.all.sort();
-
+    
     Crawl.selected = Crawl.all.slice(0, app.crawlCount);
+  
+    console.log( Crawl.selected.sort());
   };
 
-  Crawl.saveRoute = crawl =>
-    $.post(`${ENV.apiUrl}/api/v1/crawls`, crawl)
+  Crawl.saveRoute = ctx =>
+    $.post(`${ENV.apiUrl}/api/v1/crawls`, ctx)
       .then(() => {})
       .catch();
 
