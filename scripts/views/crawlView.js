@@ -30,15 +30,8 @@ var app = app || {};
       // module.Crawl.saveRoute(search);
 
       //using search parameters to make ajax request and move to results page
-      var radius;
-      if ($('#max-distance').val() === '0.25') {radius = 100;}
-      if ($('#max-distance').val() === '0.5') {radius = 200;}
-      if ($('#max-distance').val() === '0.75') {radius = 300;}
-      if ($('#max-distance').val() === '1.0') {radius = 400;}
-      if ($('#max-distance').val() === '1.25') {radius = 500;}
-      if ($('#max-distance').val() === '1.5') {radius = 600;}
       module.crawlCount = event.target.maxStops.value;
-      page(`/search/${app.latLng[0]}/${app.latLng[1]}/${parseInt($('#max-stops :selected').text())}/${radius}/`);
+      page(`/search/${app.latLng[0]}/${app.latLng[1]}/${parseInt($('#max-stops :selected').text())}/${event.target.price.value}/`);
     });
   };
 
