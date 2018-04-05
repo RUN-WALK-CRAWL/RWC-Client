@@ -18,7 +18,8 @@
 
     <script type="text/x-handlebars-template" id="user-template">
       <section class="user container">
-        <h2>{{user-name}}</h2>
+        <h2>{{name}}</h2>
+        <a href="/search/{{id}}"><button type="click">CREATE A ROUTE</button></a>
         <h3>Saved Routes</h3>
         <ul id="saved-routes-list">
           <li id="saved-route">{{route-name}}</li>
