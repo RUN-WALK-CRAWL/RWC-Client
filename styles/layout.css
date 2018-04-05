@@ -1,32 +1,30 @@
 .hamburger {
   background-color:black;
   float: right;
-  line-height:45px;
-  padding:30px 20px 30px 20px;
+  line-height:5vw;
+  /* padding:30px 20px 30px 20px; */
+  padding: 6vw 4vw 6vw 4vw;
   color:whitesmoke;
   border-radius: 10%;
   font-size:4em;
   font-weight:lighter;
   cursor:pointer;
   outline:none;
-  margin-top: 40px;
-  margin-right: 40px;
+  margin-top: 4vw;
+  margin-right: 4vw;
 }
-.cross {
-  background-color:black;
-  float: right;
-  line-height: 100px;
-  padding: 32px 25px 0px 20px;
-  /* padding-top:;
-  padding-right:;
-  padding-left:; */
-  padding-bottom:0px;
-  color:whitesmoke;
-  border-radius: 10%;
-  font-size:7em;
-  font-weight:lighter;
-  cursor:pointer;
-  outline:none;
-  margin-top: 40px;
-  margin-right: 40px;
+#blurb {
+  font-family: 'Courgette', cursive;
+  padding: 0px 0 30px 30px;
+  font-size: 5vw;
+  margin: auto;
+  text-align: center;
+}
+
+aside {
+  display: none;
+}
+
+.menu-large {
+  display: none;
 }

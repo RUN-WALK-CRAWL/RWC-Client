@@ -1,0 +1,28 @@
+.create-view{
+  width:50%;
+  margin-top:10%;
+  margin-bottom:2%;
+  left:23%;
+  padding-top:2%;
+  padding-right:5%;
+  padding-left:5%;
+  padding-bottom:3%;
+  background-color:rgba(128,128,128,0.8);
+  text-align: center;
+}
+
+.create-view h2 {
+  font-size: 3em;
+}
+
+#create-form > *{
+  margin-bottom:10%;
+  width:60%;
+  background-color: white;
+  height: 40px;
+  font-size: 1.3em;
+}
+
+#create-form button {
+  background-color: rgb(223, 157, 14);
+}
