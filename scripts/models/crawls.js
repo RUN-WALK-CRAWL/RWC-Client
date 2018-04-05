@@ -3,7 +3,7 @@
 //GLOBAL VARIABLES
 var app = app || {};
 
-const ENV = {};
+let ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
 ENV.productionApiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
@@ -42,7 +42,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
         Crawl.filter(ctx);
         next();
       })
-      .catch(err => console.error(err.status, err.statusText));
+      .catch(console.error);
   };
 
   Crawl.create = crawl => {
