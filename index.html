@@ -2,11 +2,15 @@
 <html>
   <head>
     <title>RUN-WALK-CRAWL</title>
+    <meta property="og:title" content="RUN-WALK-CRAWL"/>
+    <meta property="og:description" content="Take the guessing out of designing your bar crawl for any occasion. Let us plot out the best route for you."/>
+    <meta name="keywords" content="bar, beer, barcrawl, crawl, drinking, drunk"/>
     <link rel="stylesheet" href="styles/reset.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette|Maven+Pro">
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
     <link rel="stylesheet" href="styles/modules/map.css"/>
+    <link rel="stylesheet" href="styles/modules/about.css"/>
     <link rel="stylesheet" href="styles/modules/start.css"/>
     <link rel="stylesheet" href="styles/modules/login.css"/>
     <link rel="stylesheet" href="styles/modules/create.css"/>
@@ -79,75 +83,81 @@
           <form id="create-form">
             <input id="pac-input" type="text" name="location" placeholder="Enter a location">
             <br>
-            <select id="max-stops" name="maxStops">
-                <option value="">--Select Number of Stops--</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-              </select>
-              <br>
-            <select id="price-filter" name="price">
-                <option value="">--Select Budget--</option>
-                <option value="2">$$</option>
-                <option value="3">$$$</option>
-                <option value="4">$$$$</option>
-              </select>
-              <br>
-              <button id="create-button" type="submit">Submit</button>
-          </form>
-        </section>
-        <!-- ROUTE VIEW -->
-        <section class="route-view container">
-            <div id="map"></div>
-            <div id="button-holder">
-              <button id="save-route-button" type="click">SAVE ROUTE</button>
+          <select id="price-filter" name="price">
+              <option value="">Budget</option>
+              <option value="2">$$</option>
+              <option value="3">$$$</option>
+              <option value="4">$$$$</option>
+            </select>
+            <br>
+            <button id="create-button" type="submit">Submit</button>
+        </form>
+      </section>
+      <!-- ROUTE VIEW -->
+      <section class="route-view container">
+          <div id="map"></div>
+          <button id="save-route-button" type="click">Save Route</button>
+          <div id="list-container"></section>
+      </section>
+
+      <section class="login-view container">
+        <h2>Login</h2>
+        <form id="login-form">
+          <input type="text" id="username" name="username" placeholder="Username" required>
+          <input type="text" id="password" name="password" placeholder="Password" required>
+          <button id="login-button" type="submit">Login</button>
+          <p class="error container">User ID/ Password is not correct!</p>
+        </form>
+      </section>
+      <section class="new-user-view container">
+        <form id="register-new-user-form">
+          <input type="text" id="register-username" name="username" placeholder="Username" required>
+          <input type="text" id="register-password" name="password" placeholder="Password" required>
+          <button id="register-button" type="submit">Register</button>
+        </form>
+      </section>
+      <section class="user-profile-view container"></section>
+      <section class="default-view container"></section>
+      <section class="about-view container">
+        <div class="card-container" ontouchstart="this.classList.toggle('hover');">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/sarah.jpeg">
+            <div class="front back">
+              <h4>Sarah Geyer</h4>
+              <p>Sarah is an environmental activist turned coding enthusiast. <br>She enjoys eating burritos, watching true crime documentaries, and falling asleep on other people's couches.</p>
             </div>
-            <ol id="list-container">
-            </ol>
-        </section>
-        <section class="login-view container">
-          <h2>Login</h2>
-          <form id="login-form">
-            <input type="text" id="username" name="username" placeholder="Username" required>
-            <input type="text" id="password" name="password" placeholder="Password" required>
-            <button id="login-button" type="submit">Login</button>
-            <p class="error container">User ID/ Password is not correct!</p>
-          </form>
-        </section>
-        <section class="new-user-view container">
-          <form id="register-new-user-form">
-            <input type="text" id="register-username" name="username" placeholder="Username" required>
-            <input type="text" id="register-password" name="password" placeholder="Password" required>
-            <button id="register-button" type="submit">Register</button>
-          </form>
-        </section>
-        <section class="user-profile-view container"></section>
-        <section class="about-view container">
-          <div class="about">
-            <img src="images/About-us-imgs/sarah.jpeg">
-            <h4>Sarah Geyer</h4>
-            <p>Sarah is an environmental activist turned coding enthusiast. <br>She enjoys eating burritos, watching true crime documentaries, and falling asleep on other people's couches.</p>
           </div>
-          <div class="about">
-            <img src="images/About-us-imgs/jose.jpg">
-            <h4>Jose Flores</h4>
-            <p>From a Veteran to Social Media Marketing and now web developer, Jose enjoys the little things in life. Pulling out his hair over broken code is one of them.</p>
+        </div>
+        <div class="card-container">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/jose.jpg">
+            <div class="front back">
+              <h4>Jose Flores</h4>
+              <p>From a Veteran to Social Media Marketing and now web developer, Jose enjoys the little things in life. <br>Pulling out his hair over broken code is one of them.</p>
+            </div>
           </div>
-          <div class="about">
-            <img src="images/About-us-imgs/David.jpg">
-            <h4>David Stoll</h4>
-            <p>Leaving behind his life in banking, David has found a love for programming and added that to the other loves of his life: <br>Beer, live music, and delusional belief in the Mariners.</p>
+        </div>
+        <div class="card-container">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/david.jpg">
+            <div class="front back">
+              <h4>David Stoll</h4>
+              <p>Leaving behind his life in banking, David has found a love for programming and added that to the other loves of his life: <br>Beer, live music, and delusional belief in the Mariners.</p>
+            </div>
           </div>
-          <div class="about">
-            <img src="images/About-us-imgs/Sean.jpg">
-            <h4>Sean Miller</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris varius, venenatis ex eget, egestas orci. Aenean tempor fermentum massa, vitae egestas nunc pretium vitae.</p>
+        </div>
+        <div class="card-container">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/Sean.jpg">
+            <div class="front back">
+              <h4>Sean Miller</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris varius, venenatis ex eget, egestas orci. Aenean tempor fermentum massa, vitae egestas nunc pretium vitae.</p>
+            </div>
           </div>
-        </section>
-      </main>
-      <aside></aside>
+        </div>
+      </section>
+      <aside class="ad container"><p>Ad space</p></aside>
+    </main>
     <footer></footer>
     <!-- External CDN Resources -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

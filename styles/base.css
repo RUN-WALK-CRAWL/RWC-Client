@@ -46,6 +46,19 @@ h2{
   font-size:30px;
   color: rgb(223, 157, 14);
 }
+<<<<<<< HEAD
+#create-form > *{
+  margin-bottom:10%;
+  width:60%;
+}
+.login-view{
+  width:50%;
+  z-index:99;
+  position:absolute;
+  margin-top:10%;
+  margin-bottom:2%;
+  left:23%;
+=======
 
 .login-view{
   width:50%;
@@ -87,40 +100,44 @@ h2{
   margin-top:1%;
   margin-bottom:1%;
   left:7%;
+>>>>>>> 6b5a50f5dda8f42b5c29baa3bfa152ad13529309
   padding-top:2%;
   padding-right:5%;
   padding-left:5%;
   padding-bottom:3%;
+<<<<<<< HEAD
+  background-color:rgba(128,128,128,0.8);
+  text-align: center;
+}
+#login-form > *{
+  margin-bottom:10%;
+  width:60%;
+}
+=======
   background-color:rgba(53, 52, 52, 0.8);
   color: rgb(223, 157, 14);
   text-align: center;
 }
+>>>>>>> 6b5a50f5dda8f42b5c29baa3bfa152ad13529309
 
-.about-view img{
-  height: 10vw;
-  width: 10vw;
-  float: left;
-  border: 2px solid black;
-}
+/* @media only screen and (min-width: 800px) { */
+  /* .hamburger {
+    visibility: hidden;
+  } */
+/* 
+  header nav ul li {
+    visibility: visible;
+    list-style-type: none;
+    display: inline;
+    margin-right: 2vw;
+    }
+  
+  li a {
+    color: grey;
+    text-decoration: none;
+    font-size: 2vw;
+    margin-left: 1.5vw;
+    }
+  } */
 
-.about {
-  float: left;
-  margin-top: 1.25%;
-  /* line-height: 100%; */
-}
 
-.about h4 {
-  font-size: 2vw;
-  font-family: 'Courgette', cursive;
-  margin-bottom: 1%;
-  padding-top: 2%;
-}
-
-.about p {
-  font-size: 1.75vw;
-  line-height: 100%;
-  width: 80%;
-  text-align: center;
-  right: 80%;
-  padding-left: 20%;
-}
