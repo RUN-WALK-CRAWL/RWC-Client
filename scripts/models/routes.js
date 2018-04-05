@@ -1,6 +1,6 @@
 'use strict';
 
-page('/search/:lat/:lng/:stops/:price',
+page('/search/:lat/:lng/:stops/:price/:id',
   (ctx, next) => app.Crawl.search(ctx, next),
   ctx => app.crawlView.initRouteView(ctx));
 page('/search', ctx => app.crawlView.initSearchView(ctx));

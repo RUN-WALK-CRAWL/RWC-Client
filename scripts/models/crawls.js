@@ -40,7 +40,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
         JSON.parse(data.pub).restaurants.forEach(crawl => Crawl.create(crawl));
         JSON.parse(data.bar).restaurants.forEach(crawl => Crawl.create(crawl));
         Crawl.filter(ctx);
-        next();
+        next(ctx);
       })
       .catch(err => console.error(err.status, err.statusText));
   };
@@ -94,11 +94,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   Crawl.saveRoute = (ctx) =>{
     console.log(ctx);
-    let idRetrieved = localStorage.getItem('user-id',ctx.id);
-    $.post(`${ENV.apiUrl}/api/v1/crawls/${idRetrieved}`)
-      .then(() => {})
-      .catch();
-  };
+    $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}`, ctx)
+      .then(console.log("saved successfully!!"))
+      .catch(console.error);
+  }
   module.Crawl = Crawl;
 
 })(app);
