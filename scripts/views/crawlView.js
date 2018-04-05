@@ -59,6 +59,13 @@ var app = app || {};
   //   $('.create-user-route').on('click',page('/create/:username'));
   // };
 
+  crawlView.initAboutPage =()=>{
+    $('.container').hide();
+    $('.user').hide();
+    $('#background').show();
+    $('.about-view').show();
+  };
+
   module.crawlView = crawlView;
 
 })(app);

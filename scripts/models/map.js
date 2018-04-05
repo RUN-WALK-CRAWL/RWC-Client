@@ -117,10 +117,6 @@ var app = app || {};
     module.latLng = [];
     module.latLng.push(lat);
     module.latLng.push(lng);
-<<<<<<< HEAD
-    console.log(module.latLng);
-=======
->>>>>>> 2e9c530857046f4bd06034f700e75df30b2b1f50
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -149,17 +145,6 @@ var app = app || {};
     map: map,
   });
 
-<<<<<<< HEAD
-  map.setMarkers = () => {
-    for (let i = 0; i < app.Crawl.all.length; i++) {
-      new google.map.Marker({
-        position: {lat: app.Crawl.all[i].latitude, lng: app.Crawl.all[i].longitude},
-        animation: google.maps.Animation.DROP,
-        icon: '../images/beergarden.png',
-        map: map
-      });
-    }
-=======
   const allMarkers = [marker];
 
   map.setMarkers = () => {
@@ -190,7 +175,6 @@ var app = app || {};
     allMarkers.forEach(marker => {
       marker.infowindow.close(map, marker);
     });
->>>>>>> 2e9c530857046f4bd06034f700e75df30b2b1f50
   };
 
   module.map = map;
