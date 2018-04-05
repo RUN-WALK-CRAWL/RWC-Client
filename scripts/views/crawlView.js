@@ -8,8 +8,6 @@ var app = app || {};
 
   crawlView.initHomePage =()=>{
     $('.container').hide();
-    $('#nav-home').hide();
-    $('#nav-create').hide();
     // if(localStorage.token){
     //   $('.user').show();
     //   $('.guest').hide();
@@ -29,9 +27,6 @@ var app = app || {};
     $('#background').show();
     $('.create-view').show();
     $('#create-form').on('submit', function(event) {
-      if(!event.target.maxStops.value || !event.target.price.value) {alert('Please fill out both your desired number of stops and your max budget!');
-        event.preventDefault();
-        return;}
       event.preventDefault();
       //saving user id # for retrieval later
       // if(ctx.params.id){

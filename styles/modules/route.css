@@ -4,14 +4,8 @@ section {
 
 .route-view {
   width: 100%;
-  /* background-color: rgba(128,128,128,0.2); */
+  background-color: white;
   clear: both;
-}
-
-#map {
-  height: 500px;
-  padding: 0%;
-  margin: 0%;
 }
 
 #list-container {
@@ -38,12 +32,13 @@ section {
   font-size: 30px;
   background-color:rgb(223, 157, 14);
   text-align: center;
+  border: none;
 }
 
 #list-container img {
   float: left;
-  height: 200px;
-  width: 200px;
+  height: 25vw;
+  /* width: 200px; */
 }
 
 #list-container div {
@@ -55,11 +50,12 @@ section {
 }
 
 #list-container h2 {
-  padding: 0%;
+  padding: 1%;
   margin: 0%;
-  font-size: 2em;
+  font-size: 3vw;
 }
 
 #list-container p {
-  font-size: 1.8em;
+  font-size: 3vw;
+  padding: 1%;
 }

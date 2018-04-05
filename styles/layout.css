@@ -7,17 +7,16 @@
   color:whitesmoke;
   border-radius: 10%;
   font-size:4em;
-  font-weight:lighter;
   cursor:pointer;
   outline:none;
-  margin-top: 4vw;
+  margin-top: 7vw;
   margin-right: 4vw;
 }
+
 #blurb {
   font-family: 'Courgette', cursive;
-  padding: 0px 0 30px 30px;
+  padding: 0% 0% 4% 0%;
   font-size: 5vw;
-  margin: auto;
   text-align: center;
 }
 
