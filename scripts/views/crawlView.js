@@ -31,13 +31,11 @@ var app = app || {};
       //saving user id # for retrieval later
       // if(ctx.params.id){
       //   let id = localStorage.setItem('user-id', ctx.params.id);
-      // } 
-      
+      // }
+
       //using search parameters to make ajax request and move to results page
       module.crawlCount = event.target.maxStops.value;
       page(`/search/${app.latLng[0]}/${app.latLng[1]}/${parseInt($('#max-stops :selected').text())}/${event.target.price.value}`);
-      event.target.maxStops.value = '';
-      event.target.price.value = '';
     });
   };
 
