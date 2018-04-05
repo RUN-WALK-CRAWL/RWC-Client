@@ -66,6 +66,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     Crawl.all.push(new Crawl(newCrawl));
   };
 
+
   Crawl.calcDistance = (lat1, lat2, lng1, lng2) => {
     let x = lat2 - lat1;
     let y = lng2 - lng1;
@@ -88,10 +89,11 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       }
     }
     return Crawl.selected;
+
   };
 
-  Crawl.saveRoute = crawl =>
-    $.post(`${ENV.apiUrl}/api/v1/crawls`, crawl)
+  Crawl.saveRoute = ctx =>
+    $.post(`${ENV.apiUrl}/api/v1/crawls`, ctx)
       .then(() => {})
       .catch();
 

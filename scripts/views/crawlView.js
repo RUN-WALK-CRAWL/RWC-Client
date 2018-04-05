@@ -8,7 +8,14 @@ var app = app || {};
 
   crawlView.initHomePage =()=>{
     $('.container').hide();
-    $('.user').hide();
+    if(localStorage.token){
+      $('.user').show();
+      $('.guest').hide();
+    }
+    else{
+      $('.user').hide();
+      $('.guest').show();
+    } 
     $('#background').show();
     $('.home-view').show();
   };
@@ -38,19 +45,22 @@ var app = app || {};
   crawlView.initRouteView = (ctx) => {
     $('.container').hide();
     $('#background').hide();
+    if(localStorage.token) $('#save-route-button').show();
+    if(!localStorage.token) $('#save-route-button').hide();
     $('.route-view').show();
+    $('#save-route-button').on('click',app.Crawl.saveRoute(ctx));
     $('#list-container').empty();
     app.map.setMarkers();
     app.Crawl.selected.forEach(location => $('#list-container').append(location.toHtml()));
   };
 
-  // crawlView.initUserProfile = (username)=>{
-  //   $('.container').hide();
-  //   //need a load function to populate the users saved routes
-  //   //could simply be a stack of rectangles displaying the name of the route
-  //   $('.user-profile-view').show();
-  //   $('.create-user-route').on('click',page('/create/:username'));
-  // };
+  crawlView.initUserProfile = (username)=>{
+    $('.container').hide();
+    //need a load function to populate the users saved routes
+    //could simply be a stack of rectangles displaying the name of the route
+    $('.user-profile-view').show();
+    $('.create-user-route').on('click',page('/search'));
+  };
 
   crawlView.initAboutPage =()=>{
     $('.container').hide();
