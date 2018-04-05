@@ -1,9 +1,10 @@
 'use strict';
 
-page('/search/:lat/:lng/:stops/:price/',
+page('/search/:lat/:lng/:stops/:price',
   (ctx, next) => app.Crawl.search(ctx, next),
   ctx => app.crawlView.initRouteView(ctx));
 page('/search', ctx => app.crawlView.initSearchView(ctx));
+page('/search/:id', ctx => app.crawlView.initSearchView(ctx));
 page('/register', () => app.adminView.initNewUserPage());
 page('/login', () => app.adminView.initAdminPage());
 

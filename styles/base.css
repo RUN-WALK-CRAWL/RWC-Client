@@ -112,6 +112,21 @@ h2{
   margin-bottom:10%;
   width:60%;
 }
+.user-profile-view{
+  width:75%;
+  z-index:99;
+  position:absolute;
+  margin-top:1%;
+  margin-bottom:1%;
+  left:7%;
+  padding-top:2%;
+  padding-right:5%;
+  padding-left:5%;
+  padding-bottom:3%;
+  background-color:rgba(53, 52, 52, 0.8);
+  color: rgb(223, 157, 14);
+  text-align: center;
+}
 .about-view{
   width:75%;
   z-index:99;
