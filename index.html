@@ -3,9 +3,16 @@
   <head>
     <title>RUN-WALK-CRAWL</title>
     <link rel="stylesheet" href="styles/reset.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette|Maven+Pro">
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
     <link rel="stylesheet" href="styles/modules/map.css"/>
+    <link rel="stylesheet" href="styles/modules/start.css"/>
+    <link rel="stylesheet" href="styles/modules/login.css"/>
+    <link rel="stylesheet" href="styles/modules/create.css"/>
+    <link rel="stylesheet" href="styles/modules/route.css"/>
+    <link rel="stylesheet" href="styles/modules/media.css"/>
+
     <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
@@ -21,14 +28,15 @@
     </script>
 
     <script type="text/x-handlebars-template" id="list-template">
-      <div data-resid="{{res_id}}">
+      <li data-resid="{{res_id}}">
         <img src="{{thumbnail}}" alt="{{name}}">
-        <ul>{{name}}
-          <li>{{address}}</li>
-          <li>Price Range: {{price}}</li>
-          <li>User Rating: {{rating}}</li>
-        </ul>
-      </div>  
+        <div>
+          <h2>{{name}}</h2>
+          <h2>{{address}}</h2>
+          <p>Price Range: {{price}}</p>
+          <p>User Rating: {{rating}}</p>
+        </div>
+      </li>  
     </script>
 
   </head>
@@ -38,101 +46,108 @@
       <button class="hamburger">&#9776;</button>
       <!-- <button class="cross">&#735;</button> -->
       <div class="header-content">
-        <a href=""><img src="images/RWC-logo.png" alt="logo"></a>
-        <p id="blurb">Never Run Walk Crawl The Same Again!</p>
+        <a href="/"><img src="images/RWC-logo.png" alt="logo"></a>
+        <p id="blurb">Never Run Walk Crawl</br> The Same Again!</p>
       </div>
-      <nav class="menu container">
+      <nav class="menu">
         <ul>
           <a href="/login"><li class="guest">Login</li></a>
           <a href="/"><li class="user">Logout</li></a>
-          <a href="/"><li>Home</li></a>
-          <a href="/search"><li>Create</li></a>
+          <a href="/"><li id="nav-home">Home</li></a>
+          <a href="/search"><li id="nav-create">Create</li></a>
           <a href="/about"><li>About</li></a>
         </ul>
       </nav>
-    </header>
-    <main>
-      <img id="background" src="images/city-background.png" alt="city-view">
-      <section class="home-view container">
-        <a href="/search"><button id="start-button" type="click">
-            <div id="start">Start</div>
-            <div id="start-description">Create your personalized pub crawl</div>
-          </button>
-        </a>
-      </section>
-      <section class="create-view container">
-        <h2>Create your Route!</h2>
-        <form id="create-form">
-          <input id="pac-input" type="text" name="location" placeholder="Enter a location">
-          <br>
-          <select id="max-stops" name="maxStops">
-              <option value="">Number of Stops</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-            </select>
+      <nav class="menu-large">
+          <ul>
+            <a href="/login"><li class="guest">Login</li></a>
+            <a href="/about"><li>About</li></a>
+          </ul>
+        </nav>
+      </header>
+      <aside class="default-view"></aside>
+      <main>
+        <section class="home-view container">
+          <a href="/search"><button id="start-button" type="click">
+              <div id="start">Start</div>
+              <div id="start-description">Create your personalized pub crawl</div>
+            </button>
+          </a>
+        </section>
+        <section class="create-view container">
+          <h2>Create your Route!</h2>
+          <form id="create-form">
+            <input id="pac-input" type="text" name="location" placeholder="Enter a location">
             <br>
-          <select id="price-filter" name="price">
-              <option value="">Budget</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-            </select>
-            <br>
-            <button id="create-button" type="submit">Submit</button>
-        </form>
-      </section>
-      <!-- ROUTE VIEW -->
-      <section class="route-view container">
-          <div id="map"></div>
-          <button id="save-route-button" type="click">Save Route</button>
-          <div id="list-container"></section>
-      </section>
-
-      <section class="login-view container">
-        <h2>Login</h2>
-        <form id="login-form">
-          <input type="text" id="username" name="username" placeholder="Username" required>
-          <input type="text" id="password" name="password" placeholder="Password" required>
-          <button id="login-button" type="submit">Login</button>
-          <p class="error container">User ID/ Password is not correct!</p>
-        </form>
-      </section>
-      <section class="new-user-view container">
-        <form id="register-new-user-form">
-          <input type="text" id="register-username" name="username" placeholder="Username" required>
-          <input type="text" id="register-password" name="password" placeholder="Password" required>
-          <button id="register-button" type="submit">Register</button>
-        </form>
-      </section>
-      <section class="user-profile-view container"></section>
-      <section class="default-view container"></section>
-      <section class="about-view container">
-        <div class="about">
-          <img src="images/About-us-imgs/sarah.jpeg">
-          <h4>Sarah Geyer</h4>
-          <p>Sarah is an environmental activist turned coding enthusiast. <br>She enjoys eating burritos, watching true crime documentaries, and falling asleep on other people's couches.</p>
-        </div>
-        <div class="about">
-          <img src="images/About-us-imgs/jose.jpg">
-          <h4>Jose Flores</h4>
-          <p>From a Veteran to Social Media Marketing and now web developer, Jose enjoys the little things in life. Pulling out his hair over broken code is one of them.</p>
-        </div>
-        <div class="about">
-          <img src="images/About-us-imgs/David.jpg">
-          <h4>David Stoll</h4>
-          <p>Leaving behind his life in banking, David has found a love for programming and added that to the other loves of his life: <br>Beer, live music, and delusional belief in the Mariners.</p>
-        </div>
-        <div class="about">
-          <img src="images/About-us-imgs/Sean.jpg">
-          <h4>Sean Miller</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris varius, venenatis ex eget, egestas orci. Aenean tempor fermentum massa, vitae egestas nunc pretium vitae.</p>
-        </div>
-      </section>
-      <aside class="ad container"><p>Ad space</p></aside>
-    </main>
+            <select id="max-stops" name="maxStops">
+                <option value="">--Select Number of Stops--</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+              </select>
+              <br>
+            <select id="price-filter" name="price">
+                <option value="">--Select Budget--</option>
+                <option value="2">$$</option>
+                <option value="3">$$$</option>
+                <option value="4">$$$$</option>
+              </select>
+              <br>
+              <button id="create-button" type="submit">Submit</button>
+          </form>
+        </section>
+        <!-- ROUTE VIEW -->
+        <section class="route-view container">
+            <div id="map"></div>
+            <div id="button-holder">
+              <button id="save-route-button" type="click">SAVE ROUTE</button>
+            </div>
+            <ol id="list-container">
+            </ol>
+        </section>
+        <section class="login-view container">
+          <h2>Login</h2>
+          <form id="login-form">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="text" id="password" name="password" placeholder="Password" required>
+            <button id="login-button" type="submit">Login</button>
+            <p class="error container">User ID/ Password is not correct!</p>
+          </form>
+        </section>
+        <section class="new-user-view container">
+          <form id="register-new-user-form">
+            <input type="text" id="register-username" name="username" placeholder="Username" required>
+            <input type="text" id="register-password" name="password" placeholder="Password" required>
+            <button id="register-button" type="submit">Register</button>
+          </form>
+        </section>
+        <section class="user-profile-view container"></section>
+        <section class="about-view container">
+          <div class="about">
+            <img src="images/About-us-imgs/sarah.jpeg">
+            <h4>Sarah Geyer</h4>
+            <p>Sarah is an environmental activist turned coding enthusiast. <br>She enjoys eating burritos, watching true crime documentaries, and falling asleep on other people's couches.</p>
+          </div>
+          <div class="about">
+            <img src="images/About-us-imgs/jose.jpg">
+            <h4>Jose Flores</h4>
+            <p>From a Veteran to Social Media Marketing and now web developer, Jose enjoys the little things in life. Pulling out his hair over broken code is one of them.</p>
+          </div>
+          <div class="about">
+            <img src="images/About-us-imgs/David.jpg">
+            <h4>David Stoll</h4>
+            <p>Leaving behind his life in banking, David has found a love for programming and added that to the other loves of his life: <br>Beer, live music, and delusional belief in the Mariners.</p>
+          </div>
+          <div class="about">
+            <img src="images/About-us-imgs/Sean.jpg">
+            <h4>Sean Miller</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris varius, venenatis ex eget, egestas orci. Aenean tempor fermentum massa, vitae egestas nunc pretium vitae.</p>
+          </div>
+        </section>
+      </main>
+      <aside></aside>
     <footer></footer>
     <!-- External CDN Resources -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
