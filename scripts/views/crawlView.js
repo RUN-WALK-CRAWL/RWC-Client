@@ -8,7 +8,6 @@ var app = app || {};
 
   crawlView.initHomePage =()=>{
     $('.container').hide();
-
     // if(localStorage.token){
     //   $('.user').show();
     //   $('.guest').hide();
@@ -24,6 +23,7 @@ var app = app || {};
   crawlView.initSearchView = (ctx) => {
     //Hide containers, etc.
     $('.container').hide();
+    $('#nav-home').show();
     $('#background').show();
     $('.create-view').show();
     $('#create-form').on('submit', function(event) {
@@ -31,8 +31,8 @@ var app = app || {};
       //saving user id # for retrieval later
       // if(ctx.params.id){
       //   let id = localStorage.setItem('user-id', ctx.params.id);
-      // } 
-      
+      // }
+
       //using search parameters to make ajax request and move to results page
       module.crawlCount = event.target.maxStops.value;
       page(`/search/${app.latLng[0]}/${app.latLng[1]}/${parseInt($('#max-stops :selected').text())}/${event.target.price.value}/${ctx.params.id}`);
@@ -43,8 +43,8 @@ var app = app || {};
     console.log("route-view",ctx);
     $('.container').hide();
     $('#background').hide();
-    if(localStorage.token) $('#save-route-button').show();
-    if(!localStorage.token) $('#save-route-button').hide();
+    // if(localStorage.token) $('#save-route-button').show();
+    // if(!localStorage.token) $('#save-route-button').hide();
     $('.route-view').show();
     $('#save-route-button').on('click',()=>app.Crawl.saveRoute(ctx));
     $('#list-container').empty();
