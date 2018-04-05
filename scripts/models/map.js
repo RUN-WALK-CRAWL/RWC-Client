@@ -145,9 +145,10 @@ var app = app || {};
     map: map,
   });
 
-  const allMarkers = [marker];
+  let allMarkers;
 
   map.setMarkers = () => {
+    allMarkers = [marker];
     app.Crawl.selected.forEach((location,i) => {
       let myLatLng = new google.maps.LatLng(parseFloat(location.latitude),parseFloat(location.longitude));
       let newMarker = new google.maps.Marker({
@@ -167,6 +168,7 @@ var app = app || {};
       });
     });
     let bounds = new google.maps.LatLngBounds();
+    console.log(allMarkers);
     allMarkers.forEach(marker => {bounds.extend(marker.getPosition());});
     map.fitBounds(bounds);
   };
