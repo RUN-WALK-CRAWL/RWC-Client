@@ -12,3 +12,7 @@ $( document ).ready(function() {
     });
   });
 });
+
+$(document).on('click', '.card', function () {
+  $(this).toggleClass('hover');
+});

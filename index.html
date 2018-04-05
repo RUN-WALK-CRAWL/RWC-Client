@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
     <link rel="stylesheet" href="styles/modules/map.css"/>
+    <link rel="stylesheet" href="styles/modules/about.css"/>
     <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
@@ -109,25 +110,41 @@
       <section class="user-profile-view container"></section>
       <section class="default-view container"></section>
       <section class="about-view container">
-        <div class="about">
-          <img src="images/About-us-imgs/sarah.jpeg">
-          <h4>Sarah Geyer</h4>
-          <p>Sarah is an environmental activist turned coding enthusiast. <br>She enjoys eating burritos, watching true crime documentaries, and falling asleep on other people's couches.</p>
+        <div class="card-container" ontouchstart="this.classList.toggle('hover');">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/sarah.jpeg">
+            <div class="front back">
+              <h4>Sarah Geyer</h4>
+              <p>Sarah is an environmental activist turned coding enthusiast. <br>She enjoys eating burritos, watching true crime documentaries, and falling asleep on other people's couches.</p>
+            </div>
+          </div>
         </div>
-        <div class="about">
-          <img src="images/About-us-imgs/jose.jpg">
-          <h4>Jose Flores</h4>
-          <p>From a Veteran to Social Media Marketing and now web developer, Jose enjoys the little things in life. Pulling out his hair over broken code is one of them.</p>
+        <div class="card-container">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/jose.jpg">
+            <div class="front back">
+              <h4>Jose Flores</h4>
+              <p>From a Veteran to Social Media Marketing and now web developer, Jose enjoys the little things in life. Pulling out his hair over broken code is one of them.</p>
+            </div>
+          </div>
         </div>
-        <div class="about">
-          <img src="images/About-us-imgs/david.jpg">
-          <h4>David Stoll</h4>
-          <p>Leaving behind his life in banking, David has found a love for programming and added that to the other loves of his life: <br>Beer, live music, and delusional belief in the Mariners.</p>
+        <div class="card-container">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/david.jpg">
+            <div class="front back">
+              <h4>David Stoll</h4>
+              <p>Leaving behind his life in banking, David has found a love for programming and added that to the other loves of his life: <br>Beer, live music, and delusional belief in the Mariners.</p>
+            </div>
+          </div>
         </div>
-        <div class="about">
-          <img src="images/About-us-imgs/Sean.jpg">
-          <h4>Sean Miller</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris varius, venenatis ex eget, egestas orci. Aenean tempor fermentum massa, vitae egestas nunc pretium vitae.</p>
+        <div class="card-container">
+          <div class="about card">
+            <img class="front" src="images/About-us-imgs/Sean.jpg">
+            <div class="front back">
+              <h4>Sean Miller</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris varius, venenatis ex eget, egestas orci. Aenean tempor fermentum massa, vitae egestas nunc pretium vitae.</p>
+            </div>
+          </div>
         </div>
       </section>
       <aside class="ad container"><p>Ad space</p></aside>
@@ -135,6 +152,7 @@
     <footer></footer>
     <!-- External CDN Resources -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMre3vjY2sVF1Hviv2B9bxdmo9AKSlgzE&libraries=places"></script>
