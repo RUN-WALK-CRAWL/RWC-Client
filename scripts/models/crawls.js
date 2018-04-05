@@ -94,8 +94,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   Crawl.saveRoute = (ctx) =>{
     console.log(ctx);
-    let idRetrieved = localStorage.getItem('user-id',ctx.id)
-    $.post(`${ENV.apiUrl}/api/v1/crawls/${idRetrieved}`)
+    $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.id}`)
       .then(() => {})
       .catch();
   }
