@@ -15,7 +15,7 @@ var app = app || {};
     // else{
     //   $('.user').hide();
     //   $('.guest').show();
-    // } 
+    // }
     $('#background').show();
     $('.home-view').show();
   };
