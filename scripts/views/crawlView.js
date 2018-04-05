@@ -35,17 +35,18 @@ var app = app || {};
       
       //using search parameters to make ajax request and move to results page
       module.crawlCount = event.target.maxStops.value;
-      page(`/search/${app.latLng[0]}/${app.latLng[1]}/${parseInt($('#max-stops :selected').text())}/${event.target.price.value}`);
+      page(`/search/${app.latLng[0]}/${app.latLng[1]}/${parseInt($('#max-stops :selected').text())}/${event.target.price.value}/${ctx.params.id}`);
     });
   };
 
-  crawlView.initRouteView = () => {
+  crawlView.initRouteView = (ctx) => {
+    console.log("route-view",ctx);
     $('.container').hide();
     $('#background').hide();
     if(localStorage.token) $('#save-route-button').show();
     if(!localStorage.token) $('#save-route-button').hide();
     $('.route-view').show();
-    $('#save-route-button').on('click',app.Crawl.saveRoute);
+    $('#save-route-button').on('click',()=>app.Crawl.saveRoute(ctx));
     $('#list-container').empty();
     app.map.setMarkers();
     app.Crawl.selected.forEach(location => $('#list-container').append(location.toHtml()));
@@ -59,7 +60,7 @@ var app = app || {};
     $('.user-profile-view').show();
     let template = Handlebars.compile($('#user-template').text());
     $('.user-profile-view').append(template(ctx));
-    //$('.create-user-route').on('click',page(`/search/${ctx.id}`));
+    $('.create-user-route').on('click',()=>page(`/search/${ctx.id}`));
   };
 
   crawlView.initAboutPage =()=>{
