@@ -1,7 +1,7 @@
 var app = app || {};
 
 (function(module) {
-
+  // let google;
   var stylesArray = [
     {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
     {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -87,8 +87,11 @@ var app = app || {};
       position: google.maps.ControlPosition.RIGHT_CENTER
     }
   };
+  
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  // module.setMarkers(map);
+
 
   var input = document.getElementById('pac-input');
 
@@ -107,7 +110,7 @@ var app = app || {};
       map.fitBounds(place.geometry.viewport);
     } else {
       map.setCenter(place.geometry.location);
-      map.setZoom(17);
+      map.setZoom(5);
     }
     let lat = (place.geometry.location.lat());
     let lng = (place.geometry.location.lng());

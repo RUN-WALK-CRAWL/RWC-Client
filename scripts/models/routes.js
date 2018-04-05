@@ -8,7 +8,7 @@ page('/login/:username', () => app.initUserProfile());
 page('/login', () => app.adminView.initAdminPage());
 
 // page('/create/:username', ctx=>app.crawlView.initCreatePage(ctx));
-
+page('/about', () => app.crawlView.initAboutPage());
 page('/', ()=> app.crawlView.initHomePage());
 
 page();
