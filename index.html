@@ -65,6 +65,7 @@
           <input id="pac-input" type="text" name="location" placeholder="Enter a location">
           <br>
           <select id="max-stops" name="maxStops">
+              <option value="">Number of Stops</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
@@ -72,13 +73,11 @@
               <option>6</option>
             </select>
             <br>
-          <select id="max-distance" name="maxDistance">
-              <option value="0.25">0.25 mi.</option>
-              <option value="0.5">0.5 mi.</option>
-              <option value="0.75">0.75 mi.</option>
-              <option value="1.0">1.0 mi.</option>
-              <option value="1.25">1.25 mi.</option>
-              <option value="1.5">1.5 mi.</option>
+          <select id="price-filter" name="price">
+              <option value="">Budget</option>
+              <option value="2">$$</option>
+              <option value="3">$$$</option>
+              <option value="4">$$$$</option>
             </select>
             <br>
             <button id="create-button" type="submit">Submit</button>
@@ -109,7 +108,28 @@
       </section>
       <section class="user-profile-view container"></section>
       <section class="default-view container"></section>
-      <section class="about container"></section>
+      <section class="about-view container">
+        <div class="about">
+          <img src="images/About-us-imgs/sarah.jpeg">
+          <h4>Sarah Geyer</h4>
+          <p>Sarah is an environmental activist turned coding enthusiast. <br>She enjoys eating burritos, watching true crime documentaries, and falling asleep on other people's couches.</p>
+        </div>
+        <div class="about">
+          <img src="images/About-us-imgs/jose.jpg">
+          <h4>Jose Flores</h4>
+          <p>From a Veteran to Social Media Marketing and now web developer, Jose enjoys the little things in life. Pulling out his hair over broken code is one of them.</p>
+        </div>
+        <div class="about">
+          <img src="images/About-us-imgs/David.jpg">
+          <h4>David Stoll</h4>
+          <p>Leaving behind his life in banking, David has found a love for programming and added that to the other loves of his life: <br>Beer, live music, and delusional belief in the Mariners.</p>
+        </div>
+        <div class="about">
+          <img src="images/About-us-imgs/Sean.jpg">
+          <h4>Sean Miller</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris varius, venenatis ex eget, egestas orci. Aenean tempor fermentum massa, vitae egestas nunc pretium vitae.</p>
+        </div>
+      </section>
       <aside class="ad container"><p>Ad space</p></aside>
     </main>
     <footer></footer>
