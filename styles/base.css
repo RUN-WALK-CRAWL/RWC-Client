@@ -112,3 +112,25 @@ h2{
   margin-bottom:10%;
   width:60%;
 }
+
+/* @media only screen and (min-width: 800px) { */
+  /* .hamburger {
+    visibility: hidden;
+  } */
+/* 
+  header nav ul li {
+    visibility: visible;
+    list-style-type: none;
+    display: inline;
+    margin-right: 2vw;
+    }
+  
+  li a {
+    color: grey;
+    text-decoration: none;
+    font-size: 2vw;
+    margin-left: 1.5vw;
+    }
+  } */
+
+
