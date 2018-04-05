@@ -47,7 +47,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   Crawl.create = crawl => {
     let image, rating;
-    if(!crawl.restaurant.thumb) {image = 'http://via.placeholder.com/200x200';}
+    if(!crawl.restaurant.thumb) {image = 'http://tutaki.org.nz/wp-content/uploads/2016/04/no-image-available.png';}
     else {image = crawl.restaurant.thumb;}
 
     if(crawl.restaurant.user_rating.aggregate_rating === '0') {rating = 'No Reviews';}
@@ -92,10 +92,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   };
 
-  Crawl.saveRoute = ctx =>
-    $.post(`${ENV.apiUrl}/api/v1/crawls`, ctx)
-      .then(() => {})
-      .catch();
+  // Crawl.saveRoute = ctx =>
+  //   $.post(`${ENV.apiUrl}/api/v1/crawls`, ctx)
+  //     .then(() => {})
+  //     .catch();
 
   module.Crawl = Crawl;
 

@@ -1,0 +1,65 @@
+section {
+  clear: both;
+}
+
+.route-view {
+  width: 100%;
+  /* background-color: rgba(128,128,128,0.2); */
+  clear: both;
+}
+
+#map {
+  height: 500px;
+  padding: 0%;
+  margin: 0%;
+}
+
+#list-container {
+  list-style-type: decimal;
+  width: 100%;
+  clear: both;
+}
+
+#list-container li {
+  width: 100%;
+  height: 100%;
+  padding: 4%, 0%;
+  clear: both;
+  border-top: 1px solid rgb(223, 157, 14);
+}
+
+#button-holder {
+  width: 100%;
+}
+
+#save-route-button {
+  width: 100%;
+  height: 3em;
+  font-size: 30px;
+  background-color:rgb(223, 157, 14);
+  text-align: center;
+}
+
+#list-container img {
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+
+#list-container div {
+  float: left;
+}
+
+#list-container li div{
+  padding: 2%;
+}
+
+#list-container h2 {
+  padding: 0%;
+  margin: 0%;
+  font-size: 2em;
+}
+
+#list-container p {
+  font-size: 1.8em;
+}

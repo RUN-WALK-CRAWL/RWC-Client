@@ -1,0 +1,23 @@
+#start-button{
+  width:60%;
+  margin-top:15%;
+  left:20%;
+  padding-right:5%;
+  padding-left:5%;
+  padding-bottom:3%;
+  background-color:rgba(128,128,128,0.8);
+}
+#start, #start-description {
+  font-size: 10vw;
+}
+#start{
+  padding-top:6%;
+  color: rgb(223, 157, 14);
+  letter-spacing: 0.1em;
+  font-family: 'Maven Pro', sans-serif;
+}
+#start-description{
+  padding-top:3%;
+  font-size: 5vw;
+  font-family: 'Courgette', cursive;
+}

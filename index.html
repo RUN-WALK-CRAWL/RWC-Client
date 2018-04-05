@@ -6,10 +6,17 @@
     <meta property="og:description" content="Take the guessing out of designing your bar crawl for any occasion. Let us plot out the best route for you."/>
     <meta name="keywords" content="bar, beer, barcrawl, crawl, drinking, drunk"/>
     <link rel="stylesheet" href="styles/reset.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette|Maven+Pro">
     <link rel="stylesheet" href="styles/base.css"/>
     <link rel="stylesheet" href="styles/layout.css"/>
     <link rel="stylesheet" href="styles/modules/map.css"/>
     <link rel="stylesheet" href="styles/modules/about.css"/>
+    <link rel="stylesheet" href="styles/modules/start.css"/>
+    <link rel="stylesheet" href="styles/modules/login.css"/>
+    <link rel="stylesheet" href="styles/modules/create.css"/>
+    <link rel="stylesheet" href="styles/modules/route.css"/>
+    <link rel="stylesheet" href="styles/modules/media.css"/>
+
     <!-- EXTERNAL CDNs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
@@ -24,14 +31,15 @@
     </script>
 
     <script type="text/x-handlebars-template" id="list-template">
-      <div data-resid="{{res_id}}">
+      <li data-resid="{{res_id}}">
         <img src="{{thumbnail}}" alt="{{name}}">
-        <ul>{{name}}
-          <li>{{address}}</li>
-          <li>Price Range: {{price}}</li>
-          <li>User Rating: {{rating}}</li>
-        </ul>
-      </div>  
+        <div>
+          <h2>{{name}}</h2>
+          <h2>{{address}}</h2>
+          <p>Price Range: {{price}}</p>
+          <p>User Rating: {{rating}}</p>
+        </div>
+      </li>  
     </script>
 
   </head>
@@ -41,41 +49,38 @@
       <button class="hamburger">&#9776;</button>
       <!-- <button class="cross">&#735;</button> -->
       <div class="header-content">
-        <a href=""><img src="images/RWC-logo.png" alt="logo"></a>
-        <p id="blurb">Never Run Walk Crawl The Same Again!</p>
+        <a href="/"><img src="images/RWC-logo.png" alt="logo"></a>
+        <p id="blurb">Never Run Walk Crawl</br> The Same Again!</p>
       </div>
-      <nav class="menu container">
+      <nav class="menu">
         <ul>
           <a href="/login"><li class="guest">Login</li></a>
           <a href="/"><li class="user">Logout</li></a>
-          <a href="/"><li>Home</li></a>
-          <a href="/search"><li>Create</li></a>
+          <a href="/"><li id="nav-home">Home</li></a>
+          <a href="/search"><li id="nav-create">Create</li></a>
           <a href="/about"><li>About</li></a>
         </ul>
       </nav>
-    </header>
-    <main>
-      <img id="background" src="images/city-background.png" alt="city-view">
-      <section class="home-view container">
-        <a href="/search"><button id="start-button" type="click">
-            <div id="start">Start</div>
-            <div id="start-description">Create your personalized pub crawl</div>
-          </button>
-        </a>
-      </section>
-      <section class="create-view container">
-        <h2>Create your Route!</h2>
-        <form id="create-form">
-          <input id="pac-input" type="text" name="location" placeholder="Enter a location">
-          <br>
-          <select id="max-stops" name="maxStops">
-              <option value="">Number of Stops</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-            </select>
+      <nav class="menu-large">
+          <ul>
+            <a href="/login"><li class="guest">Login</li></a>
+            <a href="/about"><li>About</li></a>
+          </ul>
+        </nav>
+      </header>
+      <aside class="default-view"></aside>
+      <main>
+        <section class="home-view container">
+          <a href="/search"><button id="start-button" type="click">
+              <div id="start">Start</div>
+              <div id="start-description">Create your personalized pub crawl</div>
+            </button>
+          </a>
+        </section>
+        <section class="create-view container">
+          <h2>Create your Route!</h2>
+          <form id="create-form">
+            <input id="pac-input" type="text" name="location" placeholder="Enter a location">
             <br>
           <select id="price-filter" name="price">
               <option value="">Budget</option>

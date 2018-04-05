@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Courgette');
+*{
+  font-family: 'Maven Pro', sans-serif;
+  box-sizing: border-box;
+}
 html {
     margin: 0 auto;
-    max-width: 1000px;
-    min-width:550px;
+    min-width: 400px;
 }
 header {
   position: relative;
@@ -12,84 +14,39 @@ header img {
     max-width: 60%;
     padding-left: 20px;
 }
-nav li{
+body {
+  width: 100%;
+}
+.menu li{
   border-top: 1px solid rgb(223, 157, 14);
   text-align: center;
-  padding:5%;
-  font-size: 1.5em;
+  padding: 5%;
+  font-size: 2em;
+  font-weight: bold;
   letter-spacing: 0.1em;
   background-color:rgba(128,128,128,0.2);
+  font-family: 'Maven Pro', sans-serif;
 }
 a{
   text-decoration: none;
   color:rgb(63, 52, 20);
 }
 main{
-  position:relative;
+  background-image: url('../images/city-background.png');
 }
 footer{
-height:5em;
-background-color: red;
+  height:5em;
+  background-color: rgb(223, 157, 14);
+  clear: both;
 }
-#blurb {
-  font-family: 'Courgette', cursive;
-  padding: 0px 0 30px 30px;
-  font-size: 25px;
-  margin: auto;
-}
-#background {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  position:absolute;
-}
-#start-button{
-  width:50%;
-  z-index:99;
-  position:absolute;
-  margin-top:20%;
-  left:27%;
-  padding-top:2%;
-  padding-right:5%;
-  padding-left:5%;
-  padding-bottom:3%;
-  background-color:rgba(128,128,128,0.8);
-}
-#start, #start-description {
-  font-family: 'Courgette', cursive;
-  position: relative;
-  font-size: 45px;
-}
-#start{
-  padding-top:9%;
-  color: rgb(223, 157, 14);
-  letter-spacing: 0.1em; 
-}
-#start-description{
-  padding-top:4%;
-  font-size: 20px;
-}
-.create-view{
-  width:50%;
-  z-index:99;
-  position:absolute;
-  margin-top:10%;
-  margin-bottom:2%;
-  left:23%;
-  padding-top:2%;
-  padding-right:5%;
-  padding-left:5%;
-  padding-bottom:3%;
-  background-color:rgba(128,128,128,0.8);
-  text-align: center;
-}
+
 h2{
   padding-top:5%;
   padding-bottom:10%;
   font-size:30px;
   color: rgb(223, 157, 14);
 }
+<<<<<<< HEAD
 #create-form > *{
   margin-bottom:10%;
   width:60%;
@@ -101,10 +58,21 @@ h2{
   margin-top:10%;
   margin-bottom:2%;
   left:23%;
+=======
+
+.about-view{
+  width:75%;
+  z-index:99;
+  position:absolute;
+  margin-top:1%;
+  margin-bottom:1%;
+  left:7%;
+>>>>>>> 6b5a50f5dda8f42b5c29baa3bfa152ad13529309
   padding-top:2%;
   padding-right:5%;
   padding-left:5%;
   padding-bottom:3%;
+<<<<<<< HEAD
   background-color:rgba(128,128,128,0.8);
   text-align: center;
 }
@@ -112,6 +80,12 @@ h2{
   margin-bottom:10%;
   width:60%;
 }
+=======
+  background-color:rgba(53, 52, 52, 0.8);
+  color: rgb(223, 157, 14);
+  text-align: center;
+}
+>>>>>>> 6b5a50f5dda8f42b5c29baa3bfa152ad13529309
 
 /* @media only screen and (min-width: 800px) { */
   /* .hamburger {
