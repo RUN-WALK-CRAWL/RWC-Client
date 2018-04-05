@@ -34,7 +34,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   Crawl.search = (ctx, next) => {
     console.log('searching...');
-    $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.price}/`)
+    $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.price}`)
       .then( data => {
         Crawl.all = [];
         JSON.parse(data.pub).restaurants.forEach(crawl => Crawl.create(crawl));
@@ -95,9 +95,9 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   Crawl.saveRoute = (ctx) =>{
     console.log(ctx);
     $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}`, ctx)
-      .then(console.log("saved successfully!!"))
+      .then(console.log('saved successfully!!'))
       .catch(console.error);
-  }
+  };
   module.Crawl = Crawl;
 
 })(app);
