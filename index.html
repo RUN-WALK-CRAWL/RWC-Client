@@ -79,45 +79,58 @@
           </a>
         </section>
         <section class="create-view container">
-          <h2>Create your Route!</h2>
-          <form id="create-form">
-            <input id="pac-input" type="text" name="location" placeholder="Enter a location">
-            <br>
-          <select id="price-filter" name="price">
-              <option value="">Budget</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-            </select>
-            <br>
-            <button id="create-button" type="submit">Submit</button>
-        </form>
-      </section>
-      <!-- ROUTE VIEW -->
-      <section class="route-view container">
-          <div id="map"></div>
-          <button id="save-route-button" type="click">Save Route</button>
-          <div id="list-container"></section>
-      </section>
+          <div>
+            <h2>Create your Route!</h2>
+            <form id="create-form">
+              <input id="pac-input" type="text" name="location" placeholder="Enter a location">
+              <br>
+              <select id="max-stops" name="maxStops" required>
+                  <option value="">--Select Number of Stops--</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+                <br>
+              <select id="price-filter" name="price" required>
+                  <option value="">--Select Budget--</option>
+                  <option value="2">$$</option>
+                  <option value="3">$$$</option>
+                  <option value="4">$$$$</option>
+                </select>
+                <br>
+                <button id="create-button" type="submit">Submit</button>
+            </form>
+          </div>
+        </section>
+        <!-- ROUTE VIEW -->
+        <section class="route-view container">
+            <div id="map"></div>
+            <button id="save-route-button" type="click">SAVE ROUTE</button>
+            <ol id="list-container">
+            </ol>
+        </section>
 
-      <section class="login-view container">
-        <h2>Login</h2>
-        <form id="login-form">
-          <input type="text" id="username" name="username" placeholder="Username" required>
-          <input type="text" id="password" name="password" placeholder="Password" required>
-          <button id="login-button" type="submit">Login</button>
-          <p class="error container">User ID/ Password is not correct!</p>
-        </form>
-      </section>
-      <section class="new-user-view container">
-        <form id="register-new-user-form">
-          <input type="text" id="register-username" name="username" placeholder="Username" required>
-          <input type="text" id="register-password" name="password" placeholder="Password" required>
-          <button id="register-button" type="submit">Register</button>
-        </form>
-      </section>
-      <section class="user-profile-view container"></section>
-      <section class="default-view container"></section>
+        <section class="login-view container">
+          <div>
+            <h2>Login</h2>
+            <form id="login-form">
+              <input type="text" id="username" name="username" placeholder="Username" required>
+              <input type="text" id="password" name="password" placeholder="Password" required>
+              <button id="login-button" type="submit">Login</button>
+              <p class="error container">User ID/ Password is not correct!</p>
+            </form>
+          </div>
+        </section>
+        <section class="new-user-view container">
+          <form id="register-new-user-form">
+            <input type="text" id="register-username" name="username" placeholder="Username" required>
+            <input type="text" id="register-password" name="password" placeholder="Password" required>
+            <button id="register-button" type="submit">Register</button>
+          </form>
+        </section>
+        <section class="user-profile-view container"></section>
       <section class="about-view container">
         <div class="card-container" ontouchstart="this.classList.toggle('hover');">
           <div class="about card">
@@ -156,7 +169,6 @@
           </div>
         </div>
       </section>
-      <aside class="ad container"><p>Ad space</p></aside>
     </main>
     <footer></footer>
     <!-- External CDN Resources -->

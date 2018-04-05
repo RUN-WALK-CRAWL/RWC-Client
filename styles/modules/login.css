@@ -1,18 +1,19 @@
 .login-view{
-  width:50%;
-  z-index:99;
-  position:absolute;
-  margin-top:10%;
-  margin-bottom:2%;
-  left:23%;
-  padding-top:2%;
-  padding-right:5%;
-  padding-left:5%;
-  padding-bottom:3%;
-  background-color:rgba(128,128,128,0.8);
+  width:100%;
   text-align: center;
+  padding: 8% 20%;
+}
+
+.login-view div {
+  background-color:rgba(128,128,128,0.8);
+  width: 100%;
+  padding: 4%;
 }
 #login-form > *{
-  margin-bottom:10%;
+  margin-bottom:4%;
   width:60%;
+}
+
+#login-form button {
+  background-color: rgb(223, 157, 14);
 }

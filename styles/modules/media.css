@@ -38,7 +38,6 @@
     display: block;
     height: 1px;
     float: left;
-    background-color: rgb(104, 104, 104);
   }
   #start-button{
     margin: 20%;
@@ -48,24 +47,22 @@
     font-size: 4vw;
   }
   #start-description {
-    font-size: 3vw;
+    font-size: 2vw;
   }
   footer {
     background-color:  rgb(207, 207, 207);
   }
   .create-view {
-    margin: 8% 15%;
-    width: 75%;
-    height: 75%;
+    margin: 2% 2.5%;
   }
   #create-form > * {
-    height: 30px;
-    font-size: 14px;
+    height: 4vw;
+    font-size: 1.5vw;
     padding: 0%;
     margin: 3%;
   }
   .create-view h2 {
-    font-size: 30px;
+    font-size: 4vw;
     padding: 3%;
   }
   #map {
@@ -87,10 +84,12 @@
   }
   #list-container h2 {
     font-size: 2vw;
+    padding: 0%;
   }
   #list-container p{
     font-size: 1.5vw;
     margin-top: 5px;
+    padding: 0%;
   }
 
   #list-container img {
@@ -100,60 +99,9 @@
 
   #list-container li {
     height: 101px;
+    border: 1px solid rgb(223, 157, 14);
+  }
+  .login-view {
+    margin: 15% 0%;
   }
 }
-
-
-/* section {
-  clear: both;
-}
-
-#list-container h2 {
-  padding: 0%;
-  margin: 0%;
-  font-size: 2em;
-}
-
-#list-container p {
-  font-size: 1.8em;
-
-.route-view {
-  width: 100%;
-  clear: both;
-}
-
-#list-container li {
-  width: 100%;
-  height: 100%;
-  padding: 4%, 0%;
-  clear: both;
-  border-top: 1px solid rgb(223, 157, 14);
-}
-
-#button-holder {
-  width: 100%;
-}
-
-#list-container img {
-  float: left;
-  height: 200px;
-  width: 200px;
-}
-
-#list-container div {
-  float: left;
-}
-
-#list-container li div{
-  padding: 2%;
-}
-
-#list-container h2 {
-  padding: 0%;
-  margin: 0%;
-  font-size: 2em;
-}
-
-#list-container p {
-  font-size: 1.8em;
-} */
