@@ -21,4 +21,8 @@ Change Log:
 * 04/05/2018 17:00 - Debugged deployed site to ensure it matched local deployment
 * 04/05/2018 17:30 - Finshed POST to save route
 * 04/05/2018 21:00 - Nav link options now changing based on page location.
+* 04/06/2018 08:50 - Populating template w/ saved routes
+* 04/06/2018 09:10 - Handlebars updated to properly show saved routes on user page
+* 04/06/2018 09:30 - User saved routes now showing on page
+* 04/06/2018 10:00 - Saved routes when clicked show correct route.
 
