@@ -5,9 +5,6 @@ var app = app || {};
 
 const ENV = {};
 
-ENV.isProduction = window.location.protocol === 'http:';
-ENV.productionApiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
-ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
 
 (function(module) {
