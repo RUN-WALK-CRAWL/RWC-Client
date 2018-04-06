@@ -30,8 +30,8 @@ ENV.apiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
   Crawl.selected = [];
 
   Crawl.search = (ctx, next) => {
-    console.log('searching...');
-    $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.price}`)
+    console.log(ctx.params);
+    $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${parseInt(ctx.params.stops)}/${parseInt(ctx.params.price)}`)
       .then( data => {
         Crawl.all = [];
         JSON.parse(data.pub).restaurants.forEach(crawl => Crawl.create(crawl));
@@ -76,6 +76,7 @@ ENV.apiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
     Crawl.all.sort();
     Crawl.all = Crawl.all.filter(crawl => crawl.price_range <= parseInt(ctx.params.price));
     Crawl.selected = [Crawl.all[0]];
+    if(!app.crawlCount) {app.crawlCount = ctx.params.stops;}
     for (let i = 0; i < app.crawlCount-1; i++) {
       let distance1 = Crawl.calcDistance(Crawl.all[i].latitude, Crawl.all[i+1].latitude, Crawl.all[i].longitude, Crawl.all[i+1].longitude);
       let distance2 = Crawl.calcDistance(Crawl.all[i].latitude, Crawl.all[i+2].latitude, Crawl.all[i].longitude, Crawl.all[i+2].longitude);
@@ -86,14 +87,11 @@ ENV.apiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
       }
     }
     return Crawl.selected;
-
   };
 
-
   Crawl.saveRoute = (ctx, routeName) =>{
-    console.log(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`);
     $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`, ctx.params)
-      .then(console.log("saved successfully!!"))
+      .then(console.log('saved successfully!!'))
       .catch(console.error);
   };
   module.Crawl = Crawl;

@@ -19,9 +19,33 @@
   background-color: rgb(223, 157, 14);
 }
 
-.user-profile-view{
+.user-profile-view {
   width:100%;
   background-color:rgba(53, 52, 52, 0.8);
   color: rgb(223, 157, 14);
   text-align: center;
+}
+
+.user-profile-view section {
+  padding: 3% 10%;
+}
+
+.user-profile-view h2 {
+  padding: 4% 0%;
+}
+
+.user-profile-view button {
+  background-color: rgb(223, 157, 14);
+  width: 50%;
+  height: 6vw;
+  margin-bottom: 3vw;
+}
+
+#saved-routes-list li {
+  background-color: rgb(223, 157, 14);
+  color: black;
+  text-decoration: none;
+  padding: 4%;
+  border: 1px solid black;
+  margin: 4%;
 }

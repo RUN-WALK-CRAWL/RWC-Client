@@ -9,6 +9,14 @@ section {
   height: 100%;
 }
 
+.route-view input {
+  width: 100%;
+  height: 8vw;
+  font-size: 5vw;
+  text-align: center;
+  font-style: italic;
+}
+
 #list-container {
   list-style-type: decimal;
   background-color: white;

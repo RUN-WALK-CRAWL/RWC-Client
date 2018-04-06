@@ -23,14 +23,13 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
     <script type="text/x-handlebars-template" id="user-template">
-      <section class="user container">
-        <h2>{{name}}</h2>
-        <a href="/search/{{id}}"><button type="click" data-userid={{id}}>CREATE A ROUTE</button></a>
+        <h2>{{username}}</h2>
+        <a href="/search/{{user_id}}"><button type="click" data-userid={{user_id}}>CREATE A ROUTE</button></a>
         <h3>Saved Routes</h3>
-        <ul id="saved-routes-list">
-          <li id="saved-route">{{route-name}}</li>
-        </ul>
-      </section>
+    </script>
+
+    <script type="text/x-handlebars-template" id="saved-routes-template">
+      <a href="/search/{{latitude}}/{{longitude}}/{{stops}}/{{price}}/{{user_id}}"><li id="{{route_id}}">{{route_name}}</li></a>
     </script>
 
     <script type="text/x-handlebars-template" id="list-template">
@@ -57,11 +56,12 @@
       </div>
       <nav class="menu">
         <ul>
-          <a href="/login"><li class="guest">Login</li></a>
-          <a href="/"><li class="user">Logout</li></a>
           <a href="/"><li id="nav-home">Home</li></a>
+          <a href="/login"><li class="user" id="nav-profile">View Profile</li></a>
           <a href="/search"><li id="nav-create">Create</li></a>
           <a href="/about"><li>About</li></a>
+          <a href="/login"><li class="guest">Login</li></a>
+          <a href="/"><li id="logout" class="user">Logout</li></a>
         </ul>
       </nav>
       <nav class="menu-large">
@@ -84,15 +84,15 @@
           <div>
             <h2>Create your Route!</h2>
             <form id="create-form">
-              <input id="pac-input" type="text" name="location" placeholder="Enter a location">
+              <input id="pac-input" type="text" name="location" placeholder="Enter a location" required>
               <br>
               <select id="max-stops" name="maxStops" required>
                   <option value="">--Select Number of Stops--</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
                 </select>
                 <br>
               <select id="price-filter" name="price" required>
@@ -109,8 +109,8 @@
         <!-- ROUTE VIEW -->
         <section class="route-view container">
             <div id="map"></div>
-            <input id="route-name-field" type="text" name="saveRoute" placeholder="Name Your Route">
-            <button id="save-route-button" type="click">SAVE ROUTE</button>
+            <input id="route-name-field" class="user" type="text" name="saveRoute" placeholder="Name Your Route" required>
+            <a href="/login"><button id="save-route-button" class="user" type="click">SAVE ROUTE</button></a>
             <ol id="list-container">
             </ol>
         </section>
@@ -121,7 +121,7 @@
             <h2>Login</h2>
             <form id="login-form">
               <input type="text" id="username" name="username" placeholder="Username" required>
-              <input type="text" id="password" name="password" placeholder="Password" required>
+              <input type="password" id="password" name="password" placeholder="Password" required>
               <button id="login-button" type="submit">Login</button>
               <p class="error container">User ID/ Password is not correct!</p>
             </form>
@@ -134,7 +134,10 @@
             <button id="register-button" type="submit">Register</button>
           </form>
         </section>
-        <section class="user-profile-view container"></section>
+        <section class="user-profile-view container">
+          <section class="user" id="user-header"></section>
+          <ul id="saved-routes-list"></ul>
+        </section>
       <section class="about-view container">
         <div class="card-container" ontouchstart="this.classList.toggle('hover');">
           <div class="about card">

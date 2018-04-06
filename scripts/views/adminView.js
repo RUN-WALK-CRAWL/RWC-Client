@@ -8,7 +8,6 @@ var app = app || {};
   //the link will show a differtent View
   adminView.initNewUserPage = ()=>{
     $('.container').hide();
-    $('#background').show();
     $('.new-user-view').show();
     $('#register-new-user-form').on('submit', function(event){
       event.preventDefault();
@@ -19,30 +18,40 @@ var app = app || {};
           if(res){
             localStorage.token = true;
             module.crawlView.initUserProfile(username);
+            event.target.password.value = '';
+            event.target.username.value = '';
           }
         });
     });
   };
   adminView.initAdminPage = ()=>{
+    app.crawlView.handleNav();
+    $('.guest').hide();
+    $('.user').hide();
+    $('#nav-profile').hide();
+    if (localStorage.token === 'true') {
+      module.crawlView.initUserProfile();
+      return;}
     $('.container').hide();
-    $('#background').show();
     $('.login-view').show();
     $('#login-form').on('submit', function(event) {
       event.preventDefault();
       let token = event.target.password.value;
       let username = event.target.username.value;
-      console.log(token);
       $.ajax({
         url:`${ENV.apiUrl}/api/v1/rwc/${username}`,
         type: 'GET',
         headers: {token:token}
       })
         .then(res => {
-          console.log(res);
           if(res.token){
             localStorage.token = true;
+            if (localStorage.username) {localStorage.user_id = res.id;}
+            else {localStorage.setItem('user_id', res.id);}
             $('.container').hide();
             module.crawlView.initUserProfile(res);
+            event.target.password.value = '';
+            event.target.username.value = '';
           }
         })
         .catch(() => {
