@@ -18,3 +18,10 @@
 #login-form button {
   background-color: rgb(223, 157, 14);
 }
+
+.user-profile-view{
+  width:100%;
+  background-color:rgba(53, 52, 52, 0.8);
+  color: rgb(223, 157, 14);
+  text-align: center;
+}
