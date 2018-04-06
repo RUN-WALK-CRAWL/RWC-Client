@@ -66,14 +66,20 @@ var app = app || {};
     else {id = localStorage.user_id;}
     $.get(`${ENV.apiUrl}/api/v1/crawls/${id}`)
       .then(res => {
-        $('.user-profile-view').show();
+        console.log(res[0]);
+        let userInfo = {
+          username: res[0].username,
+          user_id: res[0].user_id,
+        };
+        console.log(userInfo);
         $('.user-profile-view').empty();
-        let template = Handlebars.compile($('#user-template').text());
-        $('.user-profile-view').append(template(res));
+        let topTemplate = Handlebars.compile($('#user-template').text());
+        $('#user-header').append(topTemplate(userInfo));
+        let bottomTemplate = Handlebars.compile($('#saved-routes-template').text());
+        res.forEach(element => $('#saved-routes-list').append(bottomTemplate(element)));
         $('.create-user-route').on('click',()=>page(`/search/${ctx.id}`));
+        $('.user-profile-view').show();
       });
-    //need a load function to populate the users saved routes
-    //could simply be a stack of rectangles displaying the name of the route
   };
 
   crawlView.initAboutPage =()=>{

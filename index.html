@@ -23,14 +23,13 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
     <script type="text/x-handlebars-template" id="user-template">
-      <section class="user container">
-        <h2>{{name}}</h2>
-        <a href="/search/{{id}}"><button type="click" data-userid={{id}}>CREATE A ROUTE</button></a>
+        <h2>{{username}}</h2>
+        <a href="/search/{{user_id}}"><button type="click" data-userid={{user_id}}>CREATE A ROUTE</button></a>
         <h3>Saved Routes</h3>
-        <ul id="saved-routes-list">
-          <li id="saved-route">{{route-name}}</li>
-        </ul>
-      </section>
+    </script>
+
+    <script type="text/x-handlebars-template" id="saved-routes-template">
+      <li id="{{route_id}}">{{route_name}}</li>
     </script>
 
     <script type="text/x-handlebars-template" id="list-template">
@@ -135,7 +134,10 @@
             <button id="register-button" type="submit">Register</button>
           </form>
         </section>
-        <section class="user-profile-view container"></section>
+        <section class="user-profile-view container">
+          <section class="user" id="user-header"></section>
+          <ul id="saved-routes-list"></ul>
+        </section>
       <section class="about-view container">
         <div class="card-container" ontouchstart="this.classList.toggle('hover');">
           <div class="about card">
