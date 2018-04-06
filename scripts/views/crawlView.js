@@ -40,17 +40,12 @@ var app = app || {};
     else user_id = '0';
     $('#create-form').on('submit', function(event) {
       event.preventDefault();
-      //saving user id # for retrieval later
-      // if(ctx.params.id){
-      //   let id = localStorage.setItem('user-id', ctx.params.id);
-      // }
       module.crawlCount = event.target.maxStops.value;
       page(`/search/${app.latLng[0]}/${app.latLng[1]}/${event.target.maxStops.value}/${event.target.price.value}/${user_id}`);
     });
   };
 
   crawlView.initRouteView = (ctx) => {
-    console.log('route-view', ctx);
     $('.container').hide();
     crawlView.handleNav();
     if(localStorage.token ==='false') {$('.user').hide();}
@@ -62,9 +57,15 @@ var app = app || {};
   };
 
   crawlView.initUserProfile = ctx => {
+    //NEW
     crawlView.handleNav();
     $('#nav-profile').hide();
     $('.container').hide();
+    let id;
+    if (ctx) {id = ctx.id;}
+    else {id = localStorage.user_id;}
+    $.get(`${ENV.apiUrl}/api/v1/crawls/${id}`)
+      .then(res => console.log(res));
 
     //need a load function to populate the users saved routes
     //could simply be a stack of rectangles displaying the name of the route

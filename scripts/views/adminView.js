@@ -38,7 +38,6 @@ var app = app || {};
       event.preventDefault();
       let token = event.target.password.value;
       let username = event.target.username.value;
-      console.log(token);
       $.ajax({
         url:`${ENV.apiUrl}/api/v1/rwc/${username}`,
         type: 'GET',
