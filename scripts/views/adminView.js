@@ -55,7 +55,11 @@ var app = app || {};
             event.target.username.value = '';
           }
         })
-        .catch(() => {token='';username='';$('.error').show();});
+        .catch(() => {
+          token='';
+          username='';
+          $('.error').show();
+        });
     });
   };
 

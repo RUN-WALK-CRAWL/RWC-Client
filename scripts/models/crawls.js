@@ -86,12 +86,11 @@ ENV.apiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
       }
     }
     return Crawl.selected;
-
   };
 
-  Crawl.saveRoute = (ctx) =>{
-    console.log(ctx);
-    $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}`, ctx)
+  Crawl.saveRoute = (ctx, routeName) =>{
+    console.log(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`);
+    $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`, ctx.params)
       .then(console.log('saved successfully!!'))
       .catch(console.error);
   };

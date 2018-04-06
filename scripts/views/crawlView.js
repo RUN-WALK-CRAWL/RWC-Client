@@ -29,6 +29,7 @@ var app = app || {};
   };
 
   crawlView.initSearchView = (ctx) => {
+    app.map.clearMarkers();
     $('.container').hide();
     crawlView.handleNav();
     $('#nav-create').hide();
@@ -45,9 +46,6 @@ var app = app || {};
       // }
       module.crawlCount = event.target.maxStops.value;
       page(`/search/${app.latLng[0]}/${app.latLng[1]}/${event.target.maxStops.value}/${event.target.price.value}/${user_id}`);
-      event.target.location.value = '';
-      event.target.price.value='';
-      event.target.maxStops.value='';
     });
   };
 
@@ -57,7 +55,7 @@ var app = app || {};
     crawlView.handleNav();
     if(localStorage.token ==='false') {$('.user').hide();}
     $('.route-view').show();
-    $('#save-route-button').on('click',() => app.Crawl.saveRoute(ctx));
+    $('#save-route-button').on('click',()=>app.Crawl.saveRoute(ctx,$('#route-name-field').val()));
     $('#list-container').empty();
     app.map.setMarkers();
     app.Crawl.selected.forEach(location => $('#list-container').append(location.toHtml()));
@@ -65,11 +63,8 @@ var app = app || {};
 
   crawlView.initUserProfile = ctx => {
     crawlView.handleNav();
-    // $('.guest').hide();
     $('#nav-profile').hide();
-    console.log(ctx);
     $('.container').hide();
-    // console.log(localStorage.getItem('username', res);
 
     //need a load function to populate the users saved routes
     //could simply be a stack of rectangles displaying the name of the route

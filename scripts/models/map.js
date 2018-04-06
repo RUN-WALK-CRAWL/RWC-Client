@@ -1,7 +1,6 @@
 var app = app || {};
 
 (function(module) {
-  // let google;
   var stylesArray = [
     {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
     {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -87,11 +86,8 @@ var app = app || {};
       position: google.maps.ControlPosition.RIGHT_CENTER
     }
   };
-  
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  // module.setMarkers(map);
-
 
   var input = document.getElementById('pac-input');
 
@@ -168,9 +164,13 @@ var app = app || {};
       });
     });
     let bounds = new google.maps.LatLngBounds();
-    console.log(allMarkers);
     allMarkers.forEach(marker => {bounds.extend(marker.getPosition());});
     map.fitBounds(bounds);
+  };
+
+  map.clearMarkers = () => {
+    allMarkers = [];
+    return allMarkers;
   };
 
   map.hideAllOpenInfoWindows = map => {
