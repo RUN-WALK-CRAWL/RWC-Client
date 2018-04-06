@@ -138,7 +138,7 @@ var app = app || {};
 
   var marker = new google.maps.Marker({
     position: {lat: 47.6062, lng: -122.3321},
-    icon: '/../../../../images/005-pin.png',
+    icon: 'https://run-walk-crawl.github.io/RWC-Client/images/005-pin.png',
     infowindow: new google.maps.InfoWindow({
       content: `Starting Point!`
     }),
@@ -153,7 +153,7 @@ var app = app || {};
       let myLatLng = new google.maps.LatLng(parseFloat(location.latitude),parseFloat(location.longitude));
       let newMarker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
-        icon: '/../../../../images/bar-icon.png',
+        icon: 'https://run-walk-crawl.github.io/RWC-Client/images/bar-icon.png',
         map: map,
         infowindow: new google.maps.InfoWindow({
           content: `<h3><b>Stop ${i+1}</b></h3>` + `<p>${location.name}</p>` + `<p><em>${location.address}</em></p>`
