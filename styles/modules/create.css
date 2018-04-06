@@ -6,7 +6,7 @@
 }
 
 .create-view div {
-  background-color:rgba(128,128,128,0.8);
+  background-color:rgba(75, 74, 74, 0.8);
   width: 100%;
 }
 
@@ -27,5 +27,5 @@
 }
 
 #create-form button {
-  background-color: rgb(223, 157, 14);
+  background-color: rgb(212, 175, 95);
 }
