@@ -19,9 +19,35 @@
   background-color: rgb(223, 157, 14);
 }
 
-.user-profile-view{
+.user-profile-view {
   width:100%;
   background-color:rgba(53, 52, 52, 0.8);
   color: rgb(223, 157, 14);
   text-align: center;
 }
+
+.user-profile-view section {
+  padding: 3% 10%;
+}
+
+.user-profile-view h2 {
+  padding: 4% 0%;
+}
+
+.user-profile-view button {
+  background-color: rgb(223, 157, 14);
+  width: 50%;
+  height: 6vw;
+  margin-bottom: 3vw;
+}
+
+/* <script type="text/x-handlebars-template" id="user-template">
+<section class="user container">
+  <h2>{{name}}</h2>
+  <a href="/search/{{id}}"><button type="click" data-userid={{id}}>CREATE A ROUTE</button></a>
+  <h3>Saved Routes</h3>
+  <ul id="saved-routes-list">
+    <li id="saved-route">{{route-name}}</li>
+  </ul>
+</section>
+</script> */

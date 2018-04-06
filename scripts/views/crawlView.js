@@ -6,58 +6,75 @@ var app = app || {};
 
   const crawlView = {};
 
+  crawlView.handleNav = () => {
+    $('#nav-home').show();
+    $('#nav-create').show();
+    if(localStorage.token === 'true'){
+      $('.guest').hide();
+      $('.user').show();
+    } else {
+      $('.user').hide();
+      $('.guest').show();
+    }
+    $('.menu').hide();
+  };
+
   crawlView.initHomePage =()=>{
     $('.container').hide();
-    // if(localStorage.token){
-    //   $('.user').show();
-    //   $('.guest').hide();
-    // }
-    // else{
-    //   $('.user').hide();
-    //   $('.guest').show();
-    // }
+    crawlView.handleNav();
+    $('#nav-home').hide();
+    $('#nav-create').hide();
     $('#background').show();
     $('.home-view').show();
   };
 
   crawlView.initSearchView = (ctx) => {
-    //Hide containers, etc.
     $('.container').hide();
-    $('#nav-home').show();
-    $('#background').show();
+    crawlView.handleNav();
+    $('#nav-create').hide();
     $('.create-view').show();
+    let user_id;
+    if (ctx.params.id) user_id = ctx.params.id;
+    else if (localStorage.user_id) user_id = localStorage.user_id;
+    else user_id = '0';
     $('#create-form').on('submit', function(event) {
       event.preventDefault();
       //saving user id # for retrieval later
       // if(ctx.params.id){
       //   let id = localStorage.setItem('user-id', ctx.params.id);
       // }
-
-      //using search parameters to make ajax request and move to results page
       module.crawlCount = event.target.maxStops.value;
-      page(`/search/${app.latLng[0]}/${app.latLng[1]}/${parseInt($('#max-stops :selected').text())}/${event.target.price.value}/${ctx.params.id}`);
+      page(`/search/${app.latLng[0]}/${app.latLng[1]}/${event.target.maxStops.value}/${event.target.price.value}/${user_id}`);
+      event.target.location.value = '';
+      event.target.price.value='';
+      event.target.maxStops.value='';
     });
   };
 
   crawlView.initRouteView = (ctx) => {
-    console.log("route-view",ctx);
+    console.log('route-view', ctx);
     $('.container').hide();
-    $('#background').hide();
-    // if(localStorage.token) $('#save-route-button').show();
-    // if(!localStorage.token) $('#save-route-button').hide();
+    crawlView.handleNav();
+    if(localStorage.token ==='false') {$('.user').hide();}
     $('.route-view').show();
-    $('#save-route-button').on('click',()=>app.Crawl.saveRoute(ctx));
+    $('#save-route-button').on('click',() => app.Crawl.saveRoute(ctx));
     $('#list-container').empty();
     app.map.setMarkers();
     app.Crawl.selected.forEach(location => $('#list-container').append(location.toHtml()));
   };
 
-  crawlView.initUserProfile = (ctx)=>{
+  crawlView.initUserProfile = ctx => {
+    crawlView.handleNav();
+    // $('.guest').hide();
+    $('#nav-profile').hide();
     console.log(ctx);
     $('.container').hide();
+    // console.log(localStorage.getItem('username', res);
+
     //need a load function to populate the users saved routes
     //could simply be a stack of rectangles displaying the name of the route
     $('.user-profile-view').show();
+    $('.user-profile-view').empty();
     let template = Handlebars.compile($('#user-template').text());
     $('.user-profile-view').append(template(ctx));
     $('.create-user-route').on('click',()=>page(`/search/${ctx.id}`));
@@ -65,8 +82,7 @@ var app = app || {};
 
   crawlView.initAboutPage =()=>{
     $('.container').hide();
-    $('.user').hide();
-    $('#background').show();
+    crawlView.handleNav();
     $('.about-view').show();
   };
 
