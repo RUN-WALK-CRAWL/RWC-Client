@@ -53,7 +53,11 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
             module.crawlView.initUserProfile(res);
           }
         })
-        .catch(() => {token='';username='';$('.error').show();});
+        .catch(() => {
+          token='';
+          username='';
+          $('.error').show();
+        });
     });
   };
 

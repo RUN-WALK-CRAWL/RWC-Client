@@ -46,7 +46,7 @@ var app = app || {};
     if(localStorage.token) $('#save-route-button').show();
     if(!localStorage.token) $('#save-route-button').hide();
     $('.route-view').show();
-    $('#save-route-button').on('click',()=>app.Crawl.saveRoute(ctx));
+    $('#save-route-button').on('click',()=>app.Crawl.saveRoute(ctx,$('#route-name-field').val()));
     $('#list-container').empty();
     app.map.setMarkers();
     app.Crawl.selected.forEach(location => $('#list-container').append(location.toHtml()));
