@@ -57,11 +57,12 @@
       </div>
       <nav class="menu">
         <ul>
-          <a href="/login"><li class="guest">Login</li></a>
-          <a href="/"><li class="user">Logout</li></a>
           <a href="/"><li id="nav-home">Home</li></a>
+          <a href="/login"><li class="user" id="nav-profile">View Profile</li></a>
           <a href="/search"><li id="nav-create">Create</li></a>
           <a href="/about"><li>About</li></a>
+          <a href="/login"><li class="guest">Login</li></a>
+          <a href="/"><li id="logout" class="user">Logout</li></a>
         </ul>
       </nav>
       <nav class="menu-large">
@@ -84,15 +85,15 @@
           <div>
             <h2>Create your Route!</h2>
             <form id="create-form">
-              <input id="pac-input" type="text" name="location" placeholder="Enter a location">
+              <input id="pac-input" type="text" name="location" placeholder="Enter a location" required>
               <br>
               <select id="max-stops" name="maxStops" required>
                   <option value="">--Select Number of Stops--</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
                 </select>
                 <br>
               <select id="price-filter" name="price" required>
@@ -109,8 +110,8 @@
         <!-- ROUTE VIEW -->
         <section class="route-view container">
             <div id="map"></div>
-            <input id="route-name-field" type="text" name="saveRoute" placeholder="Name Your Route">
-            <button id="save-route-button" type="click">SAVE ROUTE</button>
+            <input id="route-name-field" class="user" type="text" name="saveRoute" placeholder="Name Your Route" required>
+            <a href="/login"><button id="save-route-button" class="user" type="click">SAVE ROUTE</button></a>
             <ol id="list-container">
             </ol>
         </section>
@@ -121,7 +122,7 @@
             <h2>Login</h2>
             <form id="login-form">
               <input type="text" id="username" name="username" placeholder="Username" required>
-              <input type="text" id="password" name="password" placeholder="Password" required>
+              <input type="password" id="password" name="password" placeholder="Password" required>
               <button id="login-button" type="submit">Login</button>
               <p class="error container">User ID/ Password is not correct!</p>
             </form>

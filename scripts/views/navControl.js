@@ -17,3 +17,8 @@ $(document).on('click', '.card', function () {
   $(this).toggleClass('hover');
 });
 
+$('#logout').on('click', () => {
+  localStorage.token = false;
+  localStorage.user_id = 0;
+  app.crawlView.initHomePage();
+});
