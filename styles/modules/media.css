@@ -91,12 +91,10 @@
     margin-top: 5px;
     padding: 0%;
   }
-
   #list-container img {
     height: 100px;
     width: 100px;
   }
-
   #list-container li {
     height: 105px;
     border: 1px solid rgb(223, 157, 14);
