@@ -1,0 +1,107 @@
+@media all and (min-width: 640px) {
+  main {
+    width: 70%;
+    /* height: 400px; */
+    float: left;
+  }
+  header img{
+    height: 15vw;
+    float: left;
+  }
+  header {
+    background-color: rgb(207, 207, 207);
+    clear: both;
+    height: 15vw;
+  }
+  #blurb {
+    float: left;
+    font-size: 2.5vw;
+    margin: 5% 0% 0% 10%;
+    padding: 0%;
+  }
+  .hamburger {
+    display: none;
+  }
+  .menu-large {
+    display: block;
+  }
+  .menu-large li {
+    float: right;
+    margin-top: 3%;
+    padding: 3%;
+  }
+  a {
+    font-family: 'Maven Pro', sans-serif;
+  }
+  aside {
+    width: 15%;
+    display: block;
+    height: 1px;
+    float: left;
+  }
+  #start-button{
+    margin: 20%;
+    height: 150px;
+  }
+  #start {
+    font-size: 4vw;
+  }
+  #start-description {
+    font-size: 2vw;
+  }
+  footer {
+    background-color:  rgb(207, 207, 207);
+  }
+  .create-view {
+    margin: 2% 2.5%;
+  }
+  #create-form > * {
+    height: 4vw;
+    font-size: 1.5vw;
+    padding: 0%;
+    margin: 3%;
+  }
+  .create-view h2 {
+    font-size: 4vw;
+    padding: 3%;
+  }
+  #map {
+    margin: 0%;
+    padding: 0%;
+    height: 400px;
+  }
+
+  #save-route-button {
+    height: 2em;
+    font-size: 20px;
+  }
+
+  #list-container {
+    list-style-type: none;
+    width: 100%;
+    clear: both;
+    background-color: white;
+  }
+  #list-container h2 {
+    font-size: 2vw;
+    padding: 0%;
+  }
+  #list-container p{
+    font-size: 1.5vw;
+    margin-top: 5px;
+    padding: 0%;
+  }
+
+  #list-container img {
+    height: 100px;
+    width: 100px;
+  }
+
+  #list-container li {
+    height: 105px;
+    border: 1px solid rgb(223, 157, 14);
+  }
+  .login-view {
+    margin: 15% 0%;
+  }
+}

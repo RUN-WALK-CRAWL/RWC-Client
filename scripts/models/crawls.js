@@ -6,7 +6,7 @@ var app = app || {};
 const ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
-ENV.productionApiUrl = 'https://pub-crawl-codefellows.herokuapp.com/';
+ENV.productionApiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
@@ -34,7 +34,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   Crawl.search = (ctx, next) => {
     console.log('searching...');
-    $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.price}/`)
+    $.get(`${ENV.apiUrl}/search/${ctx.params.lat}/${ctx.params.lng}/${ctx.params.stops}/${ctx.params.price}`)
       .then( data => {
         Crawl.all = [];
         JSON.parse(data.pub).restaurants.forEach(crawl => Crawl.create(crawl));
@@ -47,7 +47,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   Crawl.create = crawl => {
     let image, rating;
-    if(!crawl.restaurant.thumb) {image = 'http://via.placeholder.com/200x200';}
+    if(!crawl.restaurant.thumb) {image = 'http://tutaki.org.nz/wp-content/uploads/2016/04/no-image-available.png';}
     else {image = crawl.restaurant.thumb;}
 
     if(crawl.restaurant.user_rating.aggregate_rating === '0') {rating = 'No Reviews';}
@@ -92,12 +92,13 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   };
 
+
   Crawl.saveRoute = (ctx, routeName) =>{
     console.log(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`);
     $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`, ctx.params)
       .then(console.log("saved successfully!!"))
       .catch(console.error);
-  }
+  };
   module.Crawl = Crawl;
 
 })(app);

@@ -1,0 +1,101 @@
+.about-view{
+  width:100%;
+  z-index: 99;
+  margin-top:1%;
+  margin-bottom:1%;
+  left:7%;
+  padding-top:2%;
+  padding-left:10%;
+  padding-right: 5%;
+  padding-bottom:1%;
+  color: rgb(223, 157, 14);
+  height: 45vw;
+}
+
+.card-container {
+  height: 20vw;
+  perspective: 600;
+  width: 20vw;
+  float: left;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 6%;
+  margin-right: 6%;
+  max-width: 285px;
+  max-height: 260px;
+}
+
+.card.hover {
+  transform: rotateY(180deg);
+}
+.card {
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.card .front {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border: 2px solid black;
+}
+.card .back {
+  transform: rotateY(180deg);
+  background-color: black;
+  border: 2px solid rgb(223, 157, 14);
+  padding-left: 0.5vw;
+  padding-top: 0.5vw;
+}
+
+.about h4 {
+  font-size: 3vw;
+  font-family: 'Courgette', cursive;
+}
+
+.about p {
+  font-size: 1.65vw;
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5vw;
+}
+
+@media all and (max-width: 640px) {
+  .about-view{
+    width:100%;
+    z-index: 99;
+    margin-top:1%;
+    left:7%;
+    padding-top:2%;
+    padding-left:6%;
+    padding-right: 6%;
+    padding-bottom:3%;
+    color: rgb(223, 157, 14);
+    height: 100vw;
+  }
+  
+  .card-container {
+    height: 35vw;
+    perspective: 600;
+    width: 35vw;
+    float: left;
+    margin-top: 10%;
+    margin-bottom: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+    max-width: 285px;
+    max-height: 260px;
+  }
+  .about h4 {
+    font-size: 6vw;
+    font-family: 'Courgette', cursive;
+  }
+  
+  .about p {
+    font-size: 2.75vw;
+    width: 100%;
+    text-align: left;
+    margin-top: 0.5vw;
+  }
+}
