@@ -1,4 +1,4 @@
-@media all and (min-width: 640px) {
+@media all and (min-width: 800px) {
   main {
     width: 70%;
     /* height: 400px; */
@@ -97,7 +97,7 @@
   }
   #list-container li {
     height: 105px;
-    border: 1px solid rgb(223, 157, 14);
+    border: 1px solid rgb(212, 175, 95);
   }
   .login-view {
     margin: 15% 0%;

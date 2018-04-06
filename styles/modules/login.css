@@ -5,7 +5,7 @@
 }
 
 .login-view div {
-  background-color:rgba(128,128,128,0.8);
+  background-color:rgba(75, 74, 74, 0.8);
   width: 100%;
   padding: 4%;
 
@@ -16,13 +16,13 @@
 }
 
 #login-form button {
-  background-color: rgb(223, 157, 14);
+  background-color: rgb(212, 175, 95);
 }
 
 .user-profile-view {
   width:100%;
   background-color:rgba(53, 52, 52, 0.8);
-  color: rgb(223, 157, 14);
+  color: rgb(212, 175, 95);
   text-align: center;
 }
 
@@ -35,17 +35,18 @@
 }
 
 .user-profile-view button {
-  background-color: rgb(223, 157, 14);
+  background-color: rgb(212, 175, 95);
   width: 50%;
   height: 6vw;
   margin-bottom: 3vw;
 }
 
 #saved-routes-list li {
-  background-color: rgb(223, 157, 14);
+  background-color: rgb(212, 175, 95);
   color: black;
   text-decoration: none;
-  padding: 4%;
+  font-size: 3em;
+  padding: 2%;
   border: 1px solid black;
   margin: 4%;
 }
