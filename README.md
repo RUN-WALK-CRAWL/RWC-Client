@@ -26,3 +26,6 @@ Change Log:
 * 04/06/2018 09:30 - User saved routes now showing on page
 * 04/06/2018 10:00 - Saved routes when clicked show correct route.
 
+
+*Restaurant information pulled from Zomato API: https://developers.zomato.com/api
+*Map data pulled from Google Maps JavaScript API: https://developers.google.com/maps/documentation/javascript/
