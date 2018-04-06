@@ -40,3 +40,12 @@
   height: 6vw;
   margin-bottom: 3vw;
 }
+
+#saved-routes-list li {
+  background-color: rgb(223, 157, 14);
+  color: black;
+  text-decoration: none;
+  padding: 4%;
+  border: 1px solid black;
+  margin: 4%;
+}

@@ -72,7 +72,7 @@ var app = app || {};
           user_id: res[0].user_id,
         };
         console.log(userInfo);
-        $('.user-profile-view').empty();
+        $('#saved-routes-list').empty();
         let topTemplate = Handlebars.compile($('#user-template').text());
         $('#user-header').append(topTemplate(userInfo));
         let bottomTemplate = Handlebars.compile($('#saved-routes-template').text());
