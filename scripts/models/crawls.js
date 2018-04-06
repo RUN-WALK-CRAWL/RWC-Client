@@ -72,7 +72,6 @@ ENV.apiUrl = 'https://pub-crawl-codefellows.herokuapp.com';
   };
 
   Crawl.filter = (ctx) => {
-    //SORT CRAWL.ALL BY DISTANCE USING ALGORITM??
     Crawl.all.sort();
     Crawl.all = Crawl.all.filter(crawl => crawl.price_range <= parseInt(ctx.params.price));
     Crawl.selected = [Crawl.all[0]];

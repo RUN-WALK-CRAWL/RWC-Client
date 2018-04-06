@@ -73,6 +73,7 @@ var app = app || {};
         };
         console.log(userInfo);
         $('#saved-routes-list').empty();
+        $('#user-header').empty();
         let topTemplate = Handlebars.compile($('#user-template').text());
         $('#user-header').append(topTemplate(userInfo));
         let bottomTemplate = Handlebars.compile($('#saved-routes-template').text());
