@@ -92,10 +92,11 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   };
 
-  Crawl.saveRoute = (ctx) =>{
-    console.log(ctx);
-    $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}`, ctx)
-      .then(console.log('saved successfully!!'))
+
+  Crawl.saveRoute = (ctx, routeName) =>{
+    console.log(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`);
+    $.post(`${ENV.apiUrl}/api/v1/crawls/${ctx.params.id}/${routeName}`, ctx.params)
+      .then(console.log("saved successfully!!"))
       .catch(console.error);
   };
   module.Crawl = Crawl;
