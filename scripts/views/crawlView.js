@@ -46,6 +46,7 @@ var app = app || {};
   };
 
   crawlView.initRouteView = (ctx) => {
+    console.log(ctx);
     $('.container').hide();
     crawlView.handleNav();
     if(localStorage.token ==='false') {$('.user').hide();}
@@ -57,7 +58,6 @@ var app = app || {};
   };
 
   crawlView.initUserProfile = ctx => {
-    //NEW
     crawlView.handleNav();
     $('#nav-profile').hide();
     $('.container').hide();
